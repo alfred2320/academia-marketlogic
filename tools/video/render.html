@@ -1,0 +1,62 @@
+<!doctype html><meta charset="utf-8">
+<style>
+@font-face{font-family:Montserrat;font-weight:700;src:url(fonts/node_modules/@fontsource/montserrat/files/montserrat-latin-700-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:800;src:url(fonts/node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:900;src:url(fonts/node_modules/@fontsource/montserrat/files/montserrat-latin-900-normal.woff2)}
+@font-face{font-family:"Open Sans";font-weight:400;src:url(fonts/node_modules/@fontsource/open-sans/files/open-sans-latin-400-normal.woff2)}
+@font-face{font-family:"Open Sans";font-weight:600;src:url(fonts/node_modules/@fontsource/open-sans/files/open-sans-latin-600-normal.woff2)}
+*{box-sizing:border-box;margin:0}
+html,body{width:1280px;height:720px;overflow:hidden;background:#171B26;font-family:"Open Sans",sans-serif;color:#fff}
+#stage{position:relative;width:1280px;height:720px;overflow:hidden}
+.abs{position:absolute}
+#logo{left:64px;top:44px;height:34px}
+#tag{right:64px;top:44px;font:800 15px Montserrat;letter-spacing:.14em;color:#CCD6DF;text-transform:uppercase;line-height:34px}
+#segs{left:64px;right:64px;bottom:40px;display:flex;gap:8px}
+#segs i{flex:1;height:6px;border-radius:6px;background:#2d3446}
+#segs i.on{background:#FF5B09}
+.layer{left:64px;right:64px;top:130px;bottom:100px;opacity:0}
+.k{font:800 20px Montserrat;letter-spacing:.16em;color:#FF5B09;text-transform:uppercase}
+.big{font:900 190px/0.9 Montserrat;color:#FF5B09;letter-spacing:-.04em}
+h2{font:900 56px/1.08 Montserrat;letter-spacing:-.01em}
+p{font:400 30px/1.5 "Open Sans";color:#CCD6DF;max-width:720px}
+.bar{height:10px;width:220px;background:#FF5B09;border-radius:10px;transform-origin:left}
+#bgring{right:-160px;top:90px;width:560px;height:560px;border-radius:50%;border:2px solid #2d3446}
+#bgring2{right:-60px;top:190px;width:360px;height:360px;border-radius:50%;border:2px solid #2d3446}
+</style>
+<div id="stage"><div id="bgring" class="abs"></div><div id="bgring2" class="abs"></div>
+<img id="logo" class="abs" src="logo.png"><div id="tag" class="abs"></div>
+<div id="L" class="abs layer"></div><div id="segs" class="abs"></div></div>
+<script>
+const ease=x=>1-Math.pow(1-Math.max(0,Math.min(1,x)),3);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+let D=null,T=[];
+function setup(d){D=d;
+ document.getElementById("tag").textContent="Capítulo "+d.id;
+ const segs=document.getElementById("segs");segs.innerHTML="";d.scenes.forEach(()=>segs.appendChild(document.createElement("i")));
+ T=d.times; /* [{a,b}] por segmento: intro, escenas, outro */
+ return T[T.length-1].b}
+function layer(html,op,y,id="L"){const e=document.getElementById(id);e.innerHTML=html;e.style.opacity=op;e.style.transform="translateY("+y+"px)"}
+function frame(t){
+ let idx=T.findIndex(s=>t<s.b);if(idx<0)idx=T.length-1;
+ const s=T[idx],lt=t-s.a,left=s.b-t;
+ const inn=ease(lt/0.7),out=clamp(left/0.3);
+ const op=Math.min(inn,out);
+ const segs=document.getElementById("segs").children;
+ const nsc=D.scenes.length,cur=idx-1;
+ for(let i=0;i<nsc;i++)segs[i].className=(idx===0?false:idx>nsc?true:i<=cur)?"on":"";
+ let html="",sig;
+ if(idx===0){
+  html=`<div class="k" style="margin-top:70px">Módulo ${D.id.split(".")[0]} · ${D.module}</div><h2 style="font-size:84px;margin:26px 0 34px;max-width:1000px">${D.title}</h2><div class="bar" style="transform:scaleX(${ease(lt/1.1)})"></div>`}
+ else if(idx>nsc){
+  html=`<div class="k" style="margin-top:90px">Siguiente paso</div><h2 style="font-size:72px;margin:26px 0 30px;max-width:1000px">${D.outroH}</h2><div class="bar" style="transform:scaleX(${ease(lt/1.1)})"></div>`}
+ else{
+  const sc=D.scenes[idx-1];
+  const fs=sc.s?Math.max(84,Math.min(190,Math.floor(430/(sc.s.length*0.66)))):190;
+  const big=sc.s?`<div class="big" style="font-size:${fs}px;white-space:nowrap;transform:scale(${0.7+0.3*ease(lt/0.6)});transform-origin:left center;opacity:${ease(lt/0.5)}">${sc.s}</div>`:"";
+  const textY=(1-ease((lt-0.15)/0.6))*28;
+  const col=`<div style="flex:1;min-width:0"><div class="k" style="opacity:${ease((lt-.05)/.4)}">${sc.k}</div><h2 style="margin:18px 0 22px;transform:translateY(${textY}px);opacity:${ease((lt-.12)/.5)}">${sc.h}</h2><p style="transform:translateY(${textY*1.4}px);opacity:${ease((lt-.3)/.6)}">${sc.b}</p></div>`;
+  html=sc.s?`<div style="display:flex;gap:56px;align-items:center;margin-top:30px"><div style="width:440px;flex:none">${big}</div>${col}</div>`:`<div style="margin-top:50px;max-width:980px">${col}</div>`}
+ layer(html,idx>nsc||idx===0?op:op,0);
+ return idx+":"+(lt<1.4||left<0.4?Math.round(t*30):"s")}
+window.R={setup,frame};
+</script>

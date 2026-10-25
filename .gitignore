@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+*.log
+tools/video/audio/
+tools/video/video/
+tools/video/*.onnx
+tools/video/voices.bin
+tools/video/fonts/
+__pycache__/

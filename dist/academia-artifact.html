@@ -1,0 +1,1261 @@
+<title>Academia MarketLogic</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--accent:#FF5B09;--accent-h:#FF5225;--ink:#171B26;--surface:#F5F5F5;--border:#E5E7EB;--body:#666;--muted:#6B7280;--light:#CCD6DF;--bg:#fff;--ok:#12805C;--okbg:#E7F5EF;--warnbg:#FFF1E8;--err:#B42318;
+--fh:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;--fb:"Open Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+color-scheme:light}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:15px;line-height:1.55;margin:0;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--fh);margin:0;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+button{font:inherit;cursor:pointer;color:inherit}
+a{color:var(--accent)}
+.wrapx{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+/* barra */
+.bar{background:var(--ink);color:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ink);z-index:30}
+.bar-in{display:flex;align-items:center;gap:16px;min-height:60px;flex-wrap:wrap;padding-block:8px}
+.brand{display:flex;align-items:center;gap:12px;background:none;border:0;color:#fff;padding:0}
+.brand img{display:block;height:26px;width:auto}
+.brand-t{font-family:var(--fh);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border-left:1px solid #3a4152;padding-left:12px}
+.tabs{display:flex;gap:4px;flex:1;min-width:0;overflow-x:auto}
+.tabs button{background:none;border:0;color:var(--light);font-family:var(--fh);font-weight:700;font-size:13px;padding:10px 14px;border-radius:5px;white-space:nowrap}
+.tabs button:hover{color:#fff}
+.tabs button[aria-current="page"]{color:#fff;box-shadow:inset 0 -3px 0 var(--accent);border-radius:0}
+.who{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--light);min-width:0}
+.who b{color:#fff;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:220px}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:34px;padding:3px 11px;font-family:var(--fh);font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;background:var(--surface);color:var(--ink);border:1px solid var(--border)}
+.pill.or{background:var(--accent);color:#fff;border-color:var(--accent)}
+.pill.ok{background:var(--okbg);color:var(--ok);border-color:#BFE6D6}
+.pill.dk{background:var(--ink);color:#fff;border-color:var(--ink)}
+main{padding-block:28px 56px;outline:none}
+.foot{padding-block:24px 40px;color:var(--muted);font-size:12px;border-top:1px solid var(--border)}
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2px solid var(--accent);background:var(--accent);color:#fff;border-radius:5px;padding:11px 20px;font-family:var(--fh);font-weight:800;font-size:13px;letter-spacing:.02em;text-decoration:none;min-height:44px;transition:background .15s,color .15s,border-color .15s}
+.btn:hover{background:var(--accent-h);border-color:var(--accent-h)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.sm{padding:7px 14px;min-height:36px;font-size:12px}
+.btn[disabled]{background:var(--surface);border-color:var(--border);color:var(--muted);cursor:not-allowed}
+.lnk{background:none;border:0;padding:0;color:var(--accent);font-weight:600;text-decoration:underline;cursor:pointer}
+/* tarjetas */
+.card{border:1px solid var(--border);border-radius:16px;background:var(--bg);padding:20px}
+.panel{background:var(--surface);border-radius:18px;padding:24px}
+.kick{font-family:var(--fh);font-weight:800;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.g2,.g3,.g4{grid-template-columns:1fr}}
+/* gate */
+.gate{min-height:100vh;background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:center;padding-block:40px}
+.gate-in{max-width:620px;margin:0 auto;width:100%;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.gate img{height:32px;width:auto;display:block;margin-bottom:36px}
+.gate h1{font-size:clamp(30px,6vw,48px);font-weight:900;line-height:1.05;margin:10px 0 14px}
+.gate p{color:var(--light);max-width:52ch}
+.gate .fld{margin-top:24px}
+.fld label{display:block;font-family:var(--fh);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.inp,.txa,.sel{width:100%;border:2px solid var(--border);border-radius:5px;padding:11px 14px;font:inherit;background:var(--bg);color:var(--ink);min-height:44px}
+.inp:focus,.txa:focus,.sel:focus{border-color:var(--accent);outline:none}
+.txa{min-height:96px;resize:vertical}
+.gate .inp{border-color:#3a4152;background:#1f2432;color:#fff}
+.err{color:var(--err);font-weight:600;margin-top:8px}
+.gate .err{color:#ff9d7a}
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px;align-items:stretch}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.hero-l{background:var(--ink);color:#fff;border-radius:21px;padding:28px;position:relative;overflow:hidden}
+.hero-l h1{font-size:clamp(26px,4.4vw,40px);font-weight:900;line-height:1.08;margin:8px 0 10px}
+.hero-l p{color:var(--light);max-width:48ch}
+.hero-l .kick{color:var(--accent)}
+.ring{display:flex;align-items:center;gap:18px;margin-top:20px;flex-wrap:wrap}
+.ring svg{width:92px;height:92px;flex:none}
+.ring .num{font-family:var(--fh);font-weight:900;font-size:34px;line-height:1}
+.ring small{display:block;color:var(--light);font-size:12px;margin-top:4px}
+.blitz{border:2px solid var(--accent);border-radius:21px;padding:22px;background:var(--warnbg);display:flex;flex-direction:column;gap:10px}
+.blitz h2{font-size:22px;font-weight:900}
+.bar-p{height:10px;background:#fff;border:1px solid #f3c7ad;border-radius:34px;overflow:hidden}
+.bar-p i{display:block;height:100%;background:var(--accent);border-radius:34px;transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.mini{height:6px;background:var(--border);border-radius:34px;overflow:hidden}
+.mini i{display:block;height:100%;background:var(--accent);transition:width .5s}
+/* ruta */
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:36px 0 14px;flex-wrap:wrap}
+.sec-h h2{font-size:22px;font-weight:800}
+.bundle{margin-top:20px}
+.bundle-h{display:flex;gap:14px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.bundle-h .bn{font-family:var(--fh);font-weight:900;font-size:13px;width:34px;height:34px;border-radius:34px;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none}
+.bundle.done .bn{background:var(--ok)}
+.bundle-h h3{font-size:17px;font-weight:800}
+.mod{display:flex;flex-direction:column;gap:10px;text-align:left;border:1px solid var(--border);border-radius:16px;padding:18px;background:var(--bg);transition:border-color .15s,transform .15s}
+.mod:hover{border-color:var(--ink);transform:translateY(-2px)}
+.mod .mn{font-family:var(--fh);font-weight:900;font-size:12px;color:var(--accent);letter-spacing:.1em}
+.mod h4{font-size:16px;font-weight:800;line-height:1.2}
+.mod p{color:var(--body);font-size:13px}
+.mod.rec{border:2px solid var(--accent)}
+.mod.done{background:var(--okbg);border-color:#BFE6D6}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+/* diagnóstico */
+.qopt{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;border:2px solid var(--border);background:var(--bg);border-radius:16px;padding:14px 16px;margin-top:10px;transition:border-color .15s,background .15s}
+.qopt:hover{border-color:var(--ink)}
+.qopt .k{font-family:var(--fh);font-weight:900;width:28px;height:28px;border-radius:28px;background:var(--surface);display:grid;place-items:center;font-size:12px;flex:none}
+.qopt.sel{border-color:var(--accent);background:var(--warnbg)}
+.qopt.ok{border-color:var(--ok);background:var(--okbg)}
+.qopt.ko{border-color:var(--err);background:#FDECEA}
+.qopt.ok .k{background:var(--ok);color:#fff}
+.qopt.ko .k{background:var(--err);color:#fff}
+.qopt[disabled]{cursor:default;opacity:1}
+.steps{display:flex;gap:6px;margin-bottom:16px}
+.steps i{flex:1;height:5px;border-radius:5px;background:var(--border)}
+.steps i.on{background:var(--accent)}
+.steps i.ok{background:var(--ok)}
+.steps i.ko{background:var(--err)}
+/* lección */
+.crumb{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted);margin-bottom:14px;flex-wrap:wrap}
+.crumb button{background:none;border:0;padding:0;color:var(--accent);font-weight:600}
+.mod-h{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px;align-items:end;margin-bottom:22px}
+@media(max-width:700px){.mod-h{grid-template-columns:1fr}}
+.mod-h h1{font-size:clamp(26px,4vw,38px);font-weight:900;line-height:1.08;margin:6px 0 8px}
+.lay{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:20px;align-items:start}
+@media(max-width:860px){.lay{grid-template-columns:1fr}}
+.chap{display:flex;flex-direction:column;gap:8px}
+.chap button{display:flex;gap:12px;align-items:center;text-align:left;border:1px solid var(--border);border-radius:16px;background:var(--bg);padding:12px 14px}
+.chap button:hover{border-color:var(--ink)}
+.chap button[aria-current="true"]{border:2px solid var(--accent);background:var(--warnbg)}
+.chap .ck{width:26px;height:26px;border-radius:26px;border:2px solid var(--border);display:grid;place-items:center;flex:none;font-size:12px;font-weight:900;font-family:var(--fh)}
+.chap .done .ck,.chap button.done .ck{background:var(--ok);border-color:var(--ok);color:#fff}
+.stage{background:var(--ink);color:#fff;border-radius:21px;overflow:hidden;position:relative;min-height:380px;display:flex;flex-direction:column}
+.stage-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 20px 0;flex-wrap:wrap}
+.stage-top .t{font-family:var(--fh);font-weight:700;font-size:12px;color:var(--light);letter-spacing:.08em;text-transform:uppercase}
+.seg{display:flex;gap:6px;padding:12px 20px 0}
+.seg i{flex:1;height:4px;background:#3a4152;border-radius:4px;overflow:hidden;position:relative}
+.seg i.on{background:var(--accent)}
+.seg i.cur b{position:absolute;inset:0;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+.seg.play i.cur b{animation:fill var(--dur,10s) linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.scene{flex:1;padding:26px 24px 16px;display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-content:center}
+.scene.wide{grid-template-columns:auto minmax(0,1fr);align-items:center;gap:26px}
+@media(max-width:560px){.scene.wide{grid-template-columns:1fr}}
+.big{font-family:var(--fh);font-weight:900;font-size:clamp(46px,8vw,76px);line-height:.95;color:var(--accent);letter-spacing:-.03em;animation:pop .6s cubic-bezier(.2,1.4,.4,1) both}
+.scene .k{animation:up .45s .05s both}
+.scene h2{font-size:clamp(22px,3.6vw,32px);font-weight:900;line-height:1.1;animation:up .5s .12s both}
+.scene p{color:var(--light);font-size:16px;max-width:54ch;animation:up .5s .22s both}
+.scene .kick{color:var(--accent)}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+.stage-bot{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px 20px 18px;flex-wrap:wrap}
+.stage .btn.ghost{color:#fff;border-color:#4a5163}
+.stage .btn.ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.vid{margin-top:14px;border:1px solid var(--border);border-radius:16px;padding:14px 16px;background:var(--surface);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.vid video{width:100%;max-height:420px;border-radius:5px;background:#000;display:block}
+@media(prefers-reduced-motion:reduce){.big,.scene .k,.scene h2,.scene p{animation:none}.seg.play i.cur b{animation:none;transform:scaleX(1)}.mod:hover{transform:none}}
+/* misiones */
+.mis{display:flex;flex-direction:column;gap:10px;border:1px solid var(--border);border-radius:16px;padding:18px;background:var(--bg)}
+.mis.lock{background:var(--surface);color:var(--muted)}
+.mis.done{border-color:#BFE6D6;background:var(--okbg)}
+.mis h4{font-size:16px;font-weight:800}
+.cardchips{display:flex;gap:6px;flex-wrap:wrap}
+.cc{display:inline-flex;gap:6px;align-items:center;border:1px solid var(--ink);border-radius:5px;padding:3px 9px 3px 4px;font-size:12px;background:var(--bg)}
+.cc b{font-family:var(--fh);font-weight:900;background:var(--ink);color:#fff;border-radius:3px;padding:1px 6px;font-size:11px}
+.cc i{font-style:normal;font-family:var(--fh);font-weight:700;color:var(--muted);font-size:11px}
+/* cert */
+.reqs{display:flex;flex-direction:column;gap:8px;margin:14px 0}
+.reqs li{list-style:none;display:flex;gap:10px;align-items:center}
+.reqs ul{padding:0;margin:0}
+.reqs .dot{width:22px;height:22px;border-radius:22px;border:2px solid var(--border);display:grid;place-items:center;font-size:12px;font-weight:900;flex:none}
+.reqs .ok .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.certimg{width:100%;height:auto;border:1px solid var(--border);border-radius:16px;display:block}
+/* tabla */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{font-family:var(--fh);font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:10px 12px;border-bottom:2px solid var(--ink);white-space:nowrap}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.scrollx{overflow-x:auto;border:1px solid var(--border);border-radius:16px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:#fff;border-radius:34px;padding:12px 22px;font-weight:600;z-index:60;max-width:calc(100vw - 32px);text-align:center}
+.banner{background:var(--warnbg);border:1px solid #f3c7ad;border-radius:16px;padding:12px 16px;font-size:13px;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stat{border:1px solid var(--border);border-radius:16px;padding:14px 16px;background:var(--bg)}
+.stat b{display:block;font-family:var(--fh);font-weight:900;font-size:28px;line-height:1.1}
+.stat span{font-size:12px;color:var(--muted)}
+.lb li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);list-style:none}
+.lb{padding:0;margin:0}
+.gate .btn.ghost{color:#fff;border-color:#4a5163}
+.gate .btn.ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.gate .btn[disabled]{background:#2d3446;border-color:#2d3446;color:var(--light)}
+.gate p{color:var(--light)}
+
+/* navegacion mejorada */
+.tabs{scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.tabs button:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+.tb{font-style:normal;font-family:var(--fh);font-weight:800;font-size:11px;line-height:1;padding:4px 7px;border-radius:34px;background:#2d3446;color:var(--light)}
+.tabs button[aria-current="page"] .tb{background:var(--accent);color:#fff}
+.tb.ok{background:var(--ok);color:#fff}
+@media(max-width:720px){
+ .bar-in{gap:0 12px;padding-block:6px 0}
+ .brand-t{display:none}
+ .who{margin-left:auto}
+ .who b{max-width:120px}
+ .tabs{order:3;flex:0 0 100%;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));border-top:1px solid #2d3446;gap:0}
+ .tabs button{flex:1 0 auto;justify-content:center;padding:10px 14px;font-size:12.5px}
+}
+
+.tabs .sm{display:none}
+@media(max-width:720px){.tabs .lg{display:none}.tabs .sm{display:inline}.tabs button{flex:1 1 0;padding:10px 8px}}
+.stage .btn[disabled]{background:transparent;border-color:#3a4152;color:#6b7280}
+
+.ytw{position:relative;width:100%;aspect-ratio:16/9;border-radius:5px;overflow:hidden;background:#000}
+.ytw iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.bar-b{color:#fff;border-color:#4a5163}
+.bar-b:hover{background:#fff;color:var(--ink);border-color:#fff}
+@media(max-width:720px){.bar-b{padding:5px 10px;min-height:32px}}
+
+/* la puerta de acceso ocupa toda la pantalla, sin franja blanca arriba */
+main:not(.wrapx){padding:0}
+
+</style>
+
+<div id="app">
+  <header class="bar" id="bar" hidden>
+    <div class="wrapx bar-in">
+      <button class="brand" id="goHome" aria-label="Ir al inicio"><img src="data:image/png;base64,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" alt="MarketLogic" height="26"><span class="brand-t">Academia</span></button>
+      <nav class="tabs" id="tabs" aria-label="Secciones"></nav>
+      <div class="who" id="who"></div>
+    </div>
+  </header>
+  <main id="main" class="wrapx" tabindex="-1"></main>
+  <footer class="foot wrapx" id="foot" hidden>Sales Learning Path de MarketLogic Digital. Basado en las 7 sesiones del programa.</footer>
+</div>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script>
+/* ===== Contenido: Sales Learning Path (7 sesiones) ===== */
+const BUNDLES=[
+{id:"b1",n:"Abrir conversaciones",d:"Marca personal, rutina de prospección y multicanal.",mods:[1,2],cats:[0]},
+{id:"b2",n:"Descubrir y diferenciar",d:"Pitch, brecha, descubrimiento y vendedor desafiante.",mods:[3],cats:[1,2,3]},
+{id:"b3",n:"Negociar y cerrar",d:"Negociación de valor, cierre, referidos y posventa.",mods:[4,5],cats:[4,5,6]},
+{id:"b4",n:"Hábitos y roadmap",d:"Gestión, métricas, brand story y tu plan 30-60-90.",mods:[6,7],cats:[7]}
+];
+const MODS=[
+{id:1,b:"b1",t:"Tácticas y hábitos de Social Selling",s:"Social Selling",min:55,
+ p:"Crea tu marca personal, conecta con decisores y mide resultados.",
+ tarea:["Crea tu perfil de LinkedIn con lo aprendido y comparte el enlace.","Entra a linkedin.com/sales/ssi y guarda una captura de tu índice SSI."],
+ lessons:[
+ {id:"1.1",t:"Por qué social selling ahora",sc:[
+  {k:"El comprador",h:"Llega con la lista corta hecha",b:"De cada 10 compradores B2B, 9 compran a uno de los 3 proveedores que ya tenían en mente cuando empezaron a buscar.",s:"90%"},
+  {k:"El comprador",h:"No quiere hablar contigo todavía",b:"El 59% prefiere no hablar con un vendedor hasta estar listo para comprar. Tu perfil y tu contenido trabajan antes que tú.",s:"59%"},
+  {k:"Definición",h:"Encontrar, conectar, involucrar e influir",b:"Social selling es usar tus redes para hallar prospectos adecuados, construir relaciones de confianza y obtener inteligencia de mercado."},
+  {k:"Resultado",h:"Ya es parte de cómo ganamos clientes",b:"El 32% de los clientes de MarketLogic son resultado de una estrategia de social selling.",s:"32%"}]},
+ {id:"1.2",t:"Tu marca y tus conexiones",sc:[
+  {k:"Paso 1",h:"Todos tenemos una marca personal",b:"Lo quieras o no. Trabaja la tuya: un perfil con foto profesional se ve 14 veces más que uno sin foto.",s:"14x"},
+  {k:"Paso 1",h:"Tu headline en dos líneas",b:"Quién eres, tu por qué, tu trayectoria, tu empresa y un llamado a la acción. Tienes 7 segundos. Nunca dejes el idioma predeterminado de LinkedIn.",s:"7 s"},
+  {k:"Paso 2",h:"Empieza por quienes ya te conocen",b:"La gente confía en colegas y conocidos. Pide introducciones a través de conexiones en común y agradece cada conexión aceptada."},
+  {k:"Paso 2",h:"Invitaciones en frío, con cuidado",b:"Úsalas esporádicamente, con un mensaje de valor y sin pedir nada. Nunca agregues tus conexiones a una lista de email marketing."}]},
+ {id:"1.3",t:"Interactuar y medir",sc:[
+  {k:"Paso 3",h:"Califica de forma progresiva",b:"Primero la cuenta (¿relación de largo plazo?), luego la oportunidad y por último los influenciadores: champion, escéptico, obstructor."},
+  {k:"Paso 3",h:"Fórmula de contenido 70, 20, 10",b:"70% industria, 20% empresa y 10% personal. Comparte conocimiento, casos de éxito y preguntas. No hagas pitch de ventas en público.",s:"70/20/10"},
+  {k:"Paso 3",h:"La familiaridad se construye con toques",b:"Reenganchar un cliente inactivo toma 1 a 3 toques. Un prospecto sin ninguna familiaridad puede tomar 20 a 50.",s:"20 a 50"},
+  {k:"Paso 4",h:"Mide para mejorar",b:"Vistas de perfil, interacción con tus publicaciones, crecimiento de conexiones y tu SSI. Ventas y marketing deben compartir KPIs y definición de lead."}]}
+ ],
+ q:[
+ {q:"¿Cuáles son los 4 pasos del social selling de la sesión?",o:["Construye tu marca, conecta, interactúa y mide","Publica, vende, cierra y factura","Busca, llama, envía y espera","Segmenta, automatiza, escala y reporta"],a:0,e:"Marca, conexión, interacción y medición forman el ciclo. Cada paso alimenta al siguiente."},
+ {q:"¿Qué fórmula de contenido recomienda la sesión?",o:["70% industria, 20% empresa, 10% personal","70% empresa, 20% industria, 10% personal","50% producto, 50% ofertas","100% casos de éxito"],a:0,e:"Quien lidera con industria gana autoridad. La empresa y lo personal acompañan, sin pitch."},
+ {q:"Te llega la oportunidad de enviar una invitación en frío. ¿Qué haces?",o:["La envías esporádicamente con un mensaje de valor y sin pedir nada","La envías en masa con tu pitch","Agregas al contacto a tu lista de email marketing","Pides reunión en el primer mensaje"],a:0,e:"La meta es una conexión mínima. Agregar contactos a listas de email sin permiso está mal visto y en algunos países es ilegal."},
+ {q:"¿Cuántos segundos tienes para dar una buena impresión con tu perfil?",o:["2","7","15","30"],a:1,e:"Son 7 segundos. Por eso el headline y la foto importan tanto."},
+ {q:"¿Cuántos toques puede requerir un prospecto sin ninguna familiaridad (Jeb Blount)?",o:["1 a 3","5 a 10","20 a 50","Solo 1"],a:2,e:"Sin familiaridad previa hay que sumar muchos toques de valor. Con un cliente inactivo bastan 1 a 3."},
+ {q:"¿Qué índice de LinkedIn compara tu actividad de social selling con la de tus colegas?",o:["Lead Builder","Smart Links","Social Selling Index (SSI)","InMail"],a:2,e:"El SSI mide marca, personas correctas, interacción y relaciones. Está en linkedin.com/sales/ssi."}
+ ]},
+{id:2,b:"b1",t:"Pipeline digital constante",s:"Pipeline",min:55,
+ p:"Organiza tu día, prospecta multicanal y maneja objeciones.",
+ tarea:["Explica qué significan las 3E.","Escribe el mensaje corto que usarás para prospectar por LinkedIn.","Nombra 10 cuentas para prospectar aplicando los tips de la sesión."],
+ lessons:[
+ {id:"2.1",t:"Estructura tu día con las 3E",sc:[
+  {k:"Hábito",h:"Prospectar es el arte de interrumpir con valor",b:"Creatividad, método y compromiso. Es un juego de números: entender, aprender y optimizar."},
+  {k:"Las 3E",h:"Estructura, exploración y explotación",b:"Estructura es tu CRM y tu plan diario. Exploración es la prospección diaria. Explotación es gestionar lo que ya cosechaste: clientes, up y cross selling.",s:"3E"},
+  {k:"Exploración",h:"Tus horas sagradas",b:"Bloquea 3 horas al día: primera hora, mediodía y tarde. Trátalas como una reunión con tu mejor cliente, el que estás por conocer.",s:"3 h"},
+  {k:"Estructura",h:"CRM sin BEBaS",b:"Basura entra, basura sale. Si alguien leyera tus notas e historial, ¿sabría cómo madurar ese lead? Rol, vertical, objetivo, calificación y canal deben estar completos."}]},
+ {id:"2.2",t:"Interrumpir con valor, en varios canales",sc:[
+  {k:"Enfoque",h:"Prospecta donde puedes ganar",b:"Define tu perfil de cliente ideal: vertical, subvertical, roles, geografía y tamaño. Tus clientes actuales son la primera referencia."},
+  {k:"Teléfono",h:"5 pasos en una llamada",b:"Di su nombre, identifícate, di lo que quieres, crea un puente con un por qué y compromete la respuesta. Haz 25 a 50 dials por hora.",s:"25 a 50"},
+  {k:"Email",h:"Asunto de 40 a 50 caracteres",b:"Asunto con intriga, oferta clara, solicitud razonable y valor para el cliente. Corto, relevante y sin adjuntos ni bulk.",s:"40 a 50"},
+  {k:"LinkedIn y WhatsApp",h:"Menos de 100 palabras",b:"Simple, sin adjuntos, con una conexión personal y terminando en pregunta. En WhatsApp: identifícate, sé breve y usa enlaces transparentes."}]},
+ {id:"2.3",t:"Objeciones y pipeline sano",sc:[
+  {k:"Objeciones",h:"Tres claves: ancla, disrumpe, pregunta otra vez",b:"No reacciones por instinto. Responde lo que no esperan y vuelve a preguntar. Si no hay manera, no lo tomes personal y pasa al siguiente."},
+  {k:"Pregunta",h:"Asume que vas a ganar",b:"Quien pregunta con confianza y explica el por qué logra su objetivo en el 70% de los casos. Pide menos de lo que ofreces en valor.",s:"70%"},
+  {k:"Números",h:"Conoce tu cobertura de pipeline",b:"Con una cuota de $10,000 y 25% de cierre necesitas $40,000 de pipeline. Si cierras 5%, necesitas $200,000.",s:"$40K"},
+  {k:"Ley de reemplazo",h:"Lo que prospectas hoy llega en 90 días",b:"La prospección de 30 días trae resultados en los próximos 90. Si hoy no prospectas, lo pagarás después.",s:"30 a 90"}]}
+ ],
+ q:[
+ {q:"¿Qué significan las 3E?",o:["Estructura, exploración y explotación","Estructura, ejecución y exposición","Estrategia, energía y enfoque","Exploración, escalamiento y eficiencia"],a:0,e:"Estructura es tu CRM y plan, exploración la prospección diaria y explotación la gestión de lo ya cosechado."},
+ {q:"¿Cuánto tiempo bloqueas al día para tus horas sagradas de prospección?",o:["30 minutos","1 hora","3 horas","6 horas"],a:2,e:"Tres bloques sumando 3 horas: primera hora, mediodía y tarde."},
+ {q:"¿Cuántos dials por hora sugiere la sesión en tu bloque de llamadas?",o:["5 a 10","10 a 15","25 a 50","100"],a:2,e:"El volumen es parte del juego de números, siempre con el mensaje de 5 pasos."},
+ {q:"¿Qué longitud recomienda la sesión para el asunto de un email de prospección?",o:["10 a 20 caracteres","40 a 50 caracteres","100 a 120 caracteres","Sin límite"],a:1,e:"Un asunto corto con intriga se lee completo, también en móvil."},
+ {q:"Según la ley de los 30 días de Blount, ¿qué pasa si hoy no prospectas?",o:["No pasa nada","Lo pagas en algún momento de los próximos 90 días","Lo recuperas mañana sin costo","Mejora tu tasa de cierre"],a:1,e:"La prospección de un período de 30 días da resultados en los próximos 90."},
+ {q:"Tu cuota es $10,000 y tu tasa de cierre es 25%. ¿Qué pipeline necesitas?",o:["$25,000","$40,000","$100,000","$200,000"],a:1,e:"10,000 dividido entre 0.25 es 40,000. A mayor tasa de cierre, menos pipeline necesitas."}
+ ]},
+{id:3,b:"b2",t:"Habilidades para ganar en la era digital",s:"Habilidades",min:60,
+ p:"Pitch, brecha de valor, descubrimiento y el perfil del vendedor desafiante.",
+ tarea:["Nombra los 5 factores de un buen descubrimiento del estado actual.","Crea tu elevator pitch con lo aprendido.","Escribe qué tipo de vendedor eres y por qué."],
+ lessons:[
+ {id:"3.1",t:"Elevator pitch, brecha y puente de V.A.L.O.R.",sc:[
+  {k:"Pitch",h:"30 segundos que llevan a 5 minutos",b:"Headline, tres beneficios enfocados en el cliente y una evidencia. Prepara tres versiones: 15 segundos, 30 segundos y 1 minuto.",s:"15/30/60"},
+  {k:"Pitch",h:"No hables de productos",b:"Demuestra que entiendes su situación con términos como frustración, estrés o paz mental. Endulzantes: sorpresa, intriga, brecha de conocimiento y capacidad única."},
+  {k:"Brecha",h:"Del estado actual al estado futuro",b:"En cada venta hay una brecha. Se co-crea con el cliente: su problema de hoy y su aspiración profesional y emocional de mañana."},
+  {k:"Puente",h:"V.A.L.O.R.",b:"Ventaja competitiva, Automatización, Limitar residuos, Originalidad y Reducir costos. El puente aparece como resultado natural del descubrimiento."}]},
+ {id:"3.2",t:"Descubrimiento: el detector de problemas",sc:[
+  {k:"Descubrimiento",h:"Es la enfermedad, no el síntoma",b:"Piensa como doctor: más impacto, más brecha y más valor de tu solución. Los clientes quieren hablar de negocio, no de TI."},
+  {k:"Descubrimiento",h:"5 factores del estado actual",b:"Hechos, problemas, impacto, causas y efecto. Agrega las emociones que la situación provoca en el cliente.",s:"5"},
+  {k:"Preguntas",h:"Cuatro tipos de preguntas",b:"Investigativas, de proceso, provocativas y confirmatorias. Busca respuestas cuantificables: no “más eficiencia”, sino “15% más de productividad”."},
+  {k:"Demo",h:"Sin descubrimiento no hay demo",b:"No mezcles los dos. La demo muestra máximo 6 funciones que resuelven el problema ya entendido.",s:"6"}]},
+ {id:"3.3",t:"El vendedor desafiante",sc:[
+  {k:"Perfiles",h:"Cinco tipos de vendedor",b:"Fabricante de relaciones, trabajador, lobo solitario, solucionador reactivo y desafiante. En ventas complejas el desafiante exitoso sube de 39% a 54%.",s:"39 a 54%"},
+  {k:"Desafiante",h:"Opina con expertise y habla de dinero",b:"Conoce al cliente, ofrece un punto de vista distinto y no necesita su aprobación. El factor decisivo es el valor que genera su expertise."},
+  {k:"Cliente",h:"Resiste el cambio",b:"Competimos contra la tranquilidad de lo conocido. Reduce el riesgo y la aversión a la pérdida: se valora 300% más lo que se pierde que lo que se deja de ganar.",s:"300%"},
+  {k:"Relación",h:"De proveedor a asesor estratégico",b:"Proveedor es transaccional, consultor es experto y asesor estratégico comparte sus planes contigo. Juega a largo plazo."}]}
+ ],
+ q:[
+ {q:"¿Cuál NO es una de las cinco palancas del puente V.A.L.O.R.?",o:["Reducir costos","Automatización","Limitar residuos","Aumentar descuentos"],a:3,e:"Las cinco son: Ventaja competitiva, Automatización, Limitar residuos, Originalidad y Reducir costos."},
+ {q:"¿Cuáles son los 5 factores de un buen descubrimiento del estado actual?",o:["Hechos, problemas, impacto, causas y efecto","Precio, plazo, alcance, riesgo y garantía","Identificar emociones, empatía, influencia, aversión y silencio","Comunicación, procesamiento, feedback, impacto y hechos"],a:0,e:"Parten de los hechos y llegan al efecto sobre el resto de la organización."},
+ {q:"¿Cuál es la regla entre descubrimiento y demo?",o:["Primero demo, luego descubrimiento","30 minutos de cada uno","Sin descubrimiento no hay demo y no se mezclan","La demo reemplaza al descubrimiento"],a:2,e:"La demo sin supuestos solo es posible después de entender la necesidad."},
+ {q:"En ventas complejas, ¿qué tipo de vendedor suele ganar?",o:["Lobo solitario","Fabricante de relaciones","Solucionador reactivo","Desafiante"],a:3,e:"El desafiante sube su tasa de éxito de 39% a 54% en ventas complejas."},
+ {q:"¿Cuánto tarda una persona en evaluar inconscientemente a otra en un primer encuentro?",o:["2 segundos","30 segundos","2 minutos","10 minutos"],a:0,e:"Por eso cámara, fondo y puntualidad cuentan desde el primer segundo."},
+ {q:"¿Cuántas características muestra como máximo una demo de una hora?",o:["3","6","12","Todas las del catálogo"],a:1,e:"Seis, enfocadas en el problema del cliente."}
+ ]}
+];
+
+MODS.push(
+{id:4,b:"b3",t:"Negociar cerrando brechas de valor",s:"Negociación",min:60,
+ p:"Redefine negociar, descubre problema, necesidad y sentimiento, y toma el control como vendedor desafiante.",
+ tarea:["Responde: ¿desde cuándo empieza la negociación?","Escribe dos preguntas para pescar con red.","Escribe una pregunta clave para identificar sentimientos."],
+ lessons:[
+ {id:"4.1",t:"Negociar no es descontar",sc:[
+  {k:"Redefinir",h:"No se trata de descontar al final",b:"Negociar es conducir a ambas partes hacia un objetivo común. Empieza la primera vez que hablas con el cliente y se co-crea con él."},
+  {k:"Sandler",h:"Firma tu contrato antes de reunirte",b:"Acuerda objetivo, agenda y tiempo. Pide permiso para preguntar y define que al final ambos decidirán si hay buen fit."},
+  {k:"Teoría del juego",h:"Jugadores, estrategia y recompensa",b:"Cada negociación es una partida con decisores. La recompensa es cuantificable, no siempre es dinero. La información fluye todo el tiempo."},
+  {k:"Dato",h:"El 93% evita preguntar",b:"En un estudio de Kellogg, el 93% no diagnosticó los objetivos y preocupaciones del otro, aunque hacerlo mejoraba el resultado.",s:"93%"}]},
+ {id:"4.2",t:"Problema, necesidad y sentimiento",sc:[
+  {k:"Problema",h:"Defínelo, hazlo positivo y conviértelo en pregunta",b:"Describe, sintetiza en una frase, pásalo a positivo y a futuro, y pregúntalo: “¿Cómo podemos mejorar X para estar preparados?”."},
+  {k:"Pescar con red",h:"“Cuéntame más sobre...”",b:"Preguntas abiertas que amplían la red. Antes de la siguiente pregunta, resume lo que oíste para que el cliente valide o corrija."},
+  {k:"Necesidad",h:"Aspiraciones, no mínimos",b:"Sepáralas en tangibles e intangibles. Pregunta por qué importan y cuida que no se vuelvan exigencias. Son dinámicas: repite el ejercicio."},
+  {k:"Sentimiento",h:"La temperatura del campo de juego",b:"Los sentimientos son hechos y son accionables. Pregunta “¿qué te preocupa de la situación actual?” y disfruta el silencio."}]},
+ {id:"4.3",t:"El vendedor desafiante toma el control",sc:[
+  {k:"Experiencia de compra",h:"Lo que el cliente percibe como valor",b:"Perspectivas originales, ayuda para navegar alternativas, evitar campos minados y una compra sencilla. Tus competidores también invierten en mejorar."},
+  {k:"3 principios",h:"Enseñar, personalizar, controlar",b:"Reformula cómo el cliente ve el problema, habla desde su contexto y maneja su aversión al riesgo siendo directo, nunca agresivo."},
+  {k:"Control",h:"Cómodo con el dinero, creando momentum",b:"Se mantiene en su propuesta de valor, anticipa el siguiente paso y crea urgencia. Asertivo, ni pasivo ni agresivo."},
+  {k:"Plataforma",h:"Prepara tu plataforma de negociación",b:"Pros y contras a ojos del cliente, qué preguntar, qué compartir y qué cuidar, concesiones a dar y a pedir, y tu número."}]}
+ ],
+ q:[
+ {q:"¿Desde cuándo empieza la negociación?",o:["Cuando el cliente firma","Desde la primera vez que hablamos con el cliente","Desde la quinta conversación","Cuando se habla de precio"],a:1,e:"No esperas al final del contrato: cada reunión suma información para conducir mejor."},
+ {q:"¿Qué es una pregunta para “pescar con red”?",o:["Una pregunta cerrada de sí o no","Una pregunta abierta como “cuéntame sobre...” que amplía lo que sabes","Una oferta con descuento","Una pregunta sobre el presupuesto"],a:1,e:"La red recoge más que la caña: abre objetivo, perspectiva y ángulos que no habías previsto."},
+ {q:"Antes de pasar a la siguiente pregunta, ¿qué haces?",o:["Cambias de tema","Resumes lo conversado para que el cliente valide o corrija","Mandas la propuesta","Das tu opinión"],a:1,e:"Escuchar activamente es sintetizar y repetir."},
+ {q:"¿Cuál NO es uno de los 3 principios del vendedor desafiante?",o:["Enseñanza comercial","Personalización con resonancia","Control de la venta","Descuento anticipado"],a:3,e:"Enseña, personaliza y controla. El descuento anticipado regala valor."},
+ {q:"¿Qué haces cuando detectas que el cliente no es compatible?",o:["Insistes hasta cerrar","Diseñas el puente para que otro lo construya más barato","Agradeces y proteges el tiempo de ambas partes","Bajas el precio"],a:2,e:"Saber salirse de una oportunidad es valioso para ambos."},
+ {q:"En la plataforma de negociación, ¿qué incluyes?",o:["Solo tu precio","Información a pedir y cuidar, necesidades de ambos, concesiones a dar y pedir, y tu número","Solo la lista de competidores","La lista de descuentos"],a:1,e:"Prepararla evita improvisar y te permite conceder según un plan."}
+ ]},
+{id:5,b:"b3",t:"Cierre y posventa en la era digital",s:"Cierre y posventa",min:60,
+ p:"Los 5 factores para controlar la venta, hablar de dinero, mantener el momentum y crecer la cuenta con referidos.",
+ tarea:["Escribe los 5 factores para controlar la venta desde el principio.","Crea 3 preguntas para tu plataforma de negociación.","Escribe 3 hábitos que pondrás en práctica."],
+ lessons:[
+ {id:"5.1",t:"Controla la venta desde el principio",sc:[
+  {k:"5 factores",h:"Pescar, proponer, decidir, plataforma, empatía",b:"Pescar con red, presentación de propuesta, entender el proceso de decisión, plataforma de negociación y empatía táctica y recíproca.",s:"5"},
+  {k:"Harvard",h:"4 principios ganar-ganar",b:"Separa a la persona de la situación, negocia desde intereses y no posiciones, desarrolla requisitos de la solución y ofrece opciones."},
+  {k:"Proceso de decisión",h:"¿Quién, cómo, dónde, qué, por qué ahora, cuándo?",b:"En B2B complejo debes conocer a todos los decisores. Si el criterio no coincide con el descubrimiento, di: “Estoy confundido. Tú dijiste...”."},
+  {k:"Propuesta",h:"Contrato previo y un dolor a la vez",b:"Acuerda agenda y formato, presenta primero el dolor más importante y confirma que lo resuelve antes de pasar al siguiente."}]},
+ {id:"5.2",t:"Hablar de dinero sin regalar valor",sc:[
+  {k:"Empatía",h:"“Suena como que...”",b:"Resume su situación sin afirmar al 100%. Si responde “Eso es...”, vas bien. Espeja 2 o 3 palabras clave y sonríe: suena 31% más positivo.",s:"31%"},
+  {k:"Movidas",h:"Cada concesión es recíproca",b:"Si es fácil dar el descuento, ¿era costosa la propuesta original? Pregunta qué piensa lograr con ese descuento y qué necesita realmente."},
+  {k:"Objeción de precio",h:"Recuerda el valor del estado futuro",b:"“Estoy confundido... si esta solución te trae XX, ¿por qué no pagar YY?”. Si es un tema de asignación, calcula el costo de demorar."},
+  {k:"Presupuesto",h:"Bracketing, casos y experiencia pasada",b:"“Cuesta entre X y Z, ¿encaja?”. Comparte casos alto, medio y bajo, y confirma que la persona tiene autoridad y presupuesto."}]},
+ {id:"5.3",t:"Momentum, posventa y referidos",sc:[
+  {k:"Trials",h:"Solo si y solo si",b:"El cliente paga alguna instalación, define criterios de éxito medibles y se compromete a comprar al cumplirlos. Se divide el riesgo."},
+  {k:"Momentum",h:"El prospecto desaparece",b:"Acciona, no reacciones. Recuérdale estado actual y futuro, di que te sorprende el silencio y pregunta si algo cambió."},
+  {k:"Posventa",h:"Onboarding, up-selling y cross-selling",b:"Cross-selling es nuevos departamentos o geografías. Up-selling es servicios adicionales. Pide permiso, referencia casos y pide feedback."},
+  {k:"Referidos",h:"Cena con referido y referente cierra más",b:"Por email cierra 50%. Un almuerzo con referido y referente cierra 80 a 90%. Cada conversación de referido lleva a 2 nuevas.",s:"80 a 90%"}]}
+ ],
+ q:[
+ {q:"¿Cuáles son los 5 factores para controlar la venta desde el principio?",o:["Pescar con red, presentación de propuesta, proceso de decisión, plataforma de negociación y empatía táctica y recíproca","Saludar, pescar, no entender la decisión, plataforma y empatía","Pescar con red, preguntar presupuesto, proponer, entender y empatía","Descuento, urgencia, escasez, cierre y firma"],a:0,e:"Son las cinco palancas de la sesión. Se aplican desde la primera reunión."},
+ {q:"Si el criterio de decisión del cliente no coincide con el descubrimiento, ¿qué dices?",o:["Yo pensé que...","Estoy confundido. Tú dijiste...","Eso no es lo que habíamos acordado","Entonces bajo el precio"],a:1,e:"“Yo pensé” te hace ver como responsable del error. “Tú dijiste” protege al cliente y expone la inconsistencia."},
+ {q:"El cliente pide descuento. ¿Qué haces primero?",o:["Lo das para avanzar","Preguntas qué piensa lograr con ese descuento","Cuelgas","Subes el precio"],a:1,e:"Entiendes qué necesita y quizás lo resuelves de otra forma."},
+ {q:"¿Qué es el bracketing?",o:["Dar un rango: “cuesta entre X y Z, ¿encaja con tu presupuesto?”","Subir el precio por tramos","Ofrecer tres descuentos","Pedir un adelanto"],a:0,e:"Es una forma de determinar el presupuesto sin mostrar un precio único."},
+ {q:"¿Cuándo aceptas un trial?",o:["Siempre, para ganar tiempo","Solo si el cliente paga instalación, define métricas y se compromete a comprar","Cuando el cliente lo pide una vez","Nunca"],a:1,e:"Si y solo si. Forzar la conversación se percibe como síntoma de calidad."},
+ {q:"¿Qué cierra más: referido por email o almuerzo con referido y referente?",o:["Email, 90%","Email 50% y almuerzo 80 a 90%","Ambos igual","Ninguno funciona"],a:1,e:"El encuentro cara a cara cierra mucho más. Lo pide quien tiene mejor relación con el cliente."}
+ ]},
+{id:6,b:"b4",t:"Hábitos de comportamiento y performance",s:"Hábitos",min:55,
+ p:"Qué espera tu equipo de un gerente, cómo medir con objetivos SMART y cómo construir hábitos y tu historia de marca.",
+ tarea:["Elige 3 hábitos y su señal, acción y premio.","Escribe un objetivo SMART a 30, 60 y 90 días.","Redacta tu brand story en 7 pasos."],
+ lessons:[
+ {id:"6.1",t:"Gerente, coaching y objetivos SMART",sc:[
+  {k:"Investigación",h:"Qué espera el equipo de su gerente",b:"Según Dixon y Adamson: 73.4% son factores funcionales (vendedor desafiante, coaching, gestión) y 26.6% culturales.",s:"73%"},
+  {k:"Coaching",h:"70, 20, 10",b:"70% se aprende en la experiencia diaria, 20% en interacciones y 10% en eventos formales. El 94% quiere aprender de colegas más senior.",s:"70/20/10"},
+  {k:"Gerente",h:"Prioriza clientes con Pareto",b:"El 80% de los efectos viene del 20% de las causas. Decide con números e intuición educada: la historia detrás de cada número lo ancla."},
+  {k:"SMART",h:"Específico, medible, alcanzable, relevante, con fecha",b:"Define hitos a 30, 60 y 90 días con 1:1 y reuniones de equipo. Si no lo puedes medir, no lo puedes mejorar."}]},
+ {id:"6.2",t:"Crear hábitos que se sostienen",sc:[
+  {k:"Hábito",h:"Señal, acción y premio",b:"Veo el teléfono, prospecto, gano dinero. La autodisciplina es automatizar hábitos, como tu rutina de la mañana."},
+  {k:"Tiempo",h:"En promedio 66 días",b:"Puede tomar entre 18 y 254 días según el estudio de University College London. La constancia pesa más que la intensidad.",s:"66 d"},
+  {k:"Fundamentales",h:"Pocos, de alto impacto y con tu por qué",b:"Elige hábitos selectivos que coincidan con tus fortalezas. Crea tu brecha personal: ambiciosa pero accesible."},
+  {k:"Visualización",h:"Visualiza el proceso, no el resultado",b:"Imaginar el resultado da dopamina sin acción. Visualiza cada acción de tu día para entrenar tu mente."}]},
+ {id:"6.3",t:"Cultura y la historia de tu marca",sc:[
+  {k:"Cultura",h:"Lo que hacemos cuando nadie nos mira",b:"Integridad, confiabilidad y saber escuchar. Revisar el pipeline no es un dolor, es un ejercicio para construir confianza."},
+  {k:"Dato",h:"53% de la lealtad viene de la experiencia de ventas",b:"El equipo debe confiar en la evidencia detrás de sus números. Las cuotas se construyen desde la información del vendedor.",s:"53%"},
+  {k:"Brand story",h:"El cliente es el héroe, tú eres la guía",b:"Personaje con una brecha, un problema (villano externo, interno y filosófico), una guía con empatía y autoridad, un plan, una llamada a la acción, evitar el fracaso y un éxito."},
+  {k:"Plan",h:"Del equipo del cliente al post-venta",b:"Reunión, co-definición del problema, co-creación del puente, propuesta, demo, trial, contrato y posventa. Siempre un próximo paso."}]}
+ ],
+ q:[
+ {q:"¿Qué porcentaje de las expectativas del equipo hacia su gerente son factores funcionales?",o:["26.6%","50%","73.4%","90%"],a:2,e:"El 73.4% son funcionales y el 26.6% culturales."},
+ {q:"¿Cómo se reparte el aprendizaje 70, 20, 10?",o:["70% eventos formales","70% experiencias diarias, 20% interacciones, 10% eventos formales","70% teoría","Todo en cursos"],a:1,e:"El aprendizaje vive en el trabajo diario, por eso el coaching constante importa."},
+ {q:"¿Cuál es el ciclo de un hábito?",o:["Meta, plan, castigo","Señal, acción y premio","Idea, queja, olvido","Reunión, informe, auditoría"],a:1,e:"Ejemplo: veo el teléfono, prospecto, gano dinero."},
+ {q:"¿Qué debes visualizar para sostener un hábito?",o:["Solo el resultado final","El proceso de tu día y cada acción positiva","Nada","El premio en efectivo"],a:1,e:"Visualizar solo el resultado da dopamina sin haber hecho nada."},
+ {q:"En la historia de tu marca, ¿quién es el héroe?",o:["Tu empresa","Tu producto","El cliente","El vendedor"],a:2,e:"El cliente es el héroe de su propia historia y tú eres la guía."},
+ {q:"¿Cuántos días tarda en promedio formar un hábito?",o:["7","21","66","365"],a:2,e:"En promedio 66, con un rango de 18 a 254 días."}
+ ]},
+{id:7,b:"b4",t:"Construye tu roadmap",s:"Roadmap",min:50,
+ p:"Cierra la ruta: perfil, día en 3E, pitch, detector de problemas, desafiante y métricas en tu roadmap 30-60-90.",
+ tarea:["Completa tu roadmap con las 4 etapas.","Comparte tu plataforma de negociación.","Define tus métricas y tu primer BLITZ."],
+ lessons:[
+ {id:"7.1",t:"Etapas 1 y 2: perfil y pipeline",sc:[
+  {k:"Etapa 1",h:"Perfil que posiciona, no CV en línea",b:"Foto profesional, headline en 2 líneas, historia, recomendaciones y métricas: vistas del perfil, interacción y crecimiento de conexiones."},
+  {k:"Etapa 2",h:"Divide tu día en las 3E",b:"Estructura tu plan, explora con prospección diaria y explota lo cosechado. Compórtate como el CEO de tu tiempo."},
+  {k:"Etapa 2",h:"PCI y buyer personas",b:"Tu perfil de cliente ideal incluye vertical, subvertical, roles, geografía y tamaño. La buyer persona suma intereses, ambiciones y búsquedas."},
+  {k:"Etapa 2",h:"Pipeline organizado y multicanal",b:"Leads calientes, SQLs, MQLs y PQLs con nurturing. Mix y cadencia para llegar donde están: teléfono, email, WhatsApp y redes."}]},
+ {id:"7.2",t:"Etapas 3 y 4: pitch, detector y desafiante",sc:[
+  {k:"Etapa 3",h:"Elevator pitch y brecha aplicada",b:"Headline, 3 beneficios y evidencia. Recuerda: dos clientes pueden comprar la misma solución pero nunca resuelven el mismo problema."},
+  {k:"Etapa 3",h:"Tu detector de problemas 1.0",b:"Problemas por buyer persona, impacto en la organización (tiempo, finanzas, emoción) y lo que sabes de la raíz. Se calibra iterando."},
+  {k:"Etapa 4",h:"Mejora en los 3 principios",b:"¿Cómo enseñas, personalizas y controlas? Define dónde eres fuerte y dónde necesitas apoyo de Marketing."},
+  {k:"Etapa 4",h:"Control de la venta y métricas",b:"Aplica los 5 factores, comparte tu plataforma de negociación y define métricas que puedas evaluar, analizar y optimizar."}]},
+ {id:"7.3",t:"Tu plan 30-60-90 con BLITZ",sc:[
+  {k:"Plan",h:"De la teoría al pipeline",b:"El Learning Path termina cuando tus acciones están en la calle. Cada módulo se convierte en misiones reales dentro de BLITZ."},
+  {k:"Nivel",h:"Cada quien avanza a su ritmo",b:"Según tu madurez comercial, la Academia te ordena qué módulos y misiones tocan primero."},
+  {k:"Foco",h:"Nuevos clientes o clientes actuales",b:"Si buscas cuentas nuevas, priorizas apertura y descubrimiento. Si creces cuentas, priorizas multithread, valor y referidos."},
+  {k:"Cierre",h:"Examen final y certificado",b:"Aprueba con 80% o más, entrega al menos una misión BLITZ y descarga tu certificado."}]}
+ ],
+ q:[
+ {q:"¿Qué incluye un perfil de cliente ideal (PCI)?",o:["Solo el nombre de la empresa","Vertical, subvertical, roles, geografía y tamaño","Solo el presupuesto","Nada de eso"],a:1,e:"Tus clientes actuales son la primera referencia."},
+ {q:"¿Qué contiene el detector de problemas?",o:["Precios","Problemas por buyer persona, impacto en la organización y lo que sabes de la raíz","Lista de competidores","Contratos"],a:1,e:"Se hace desde la perspectiva del cliente y se calibra con el tiempo."},
+ {q:"¿Qué debe poder hacer cada métrica de tu roadmap?",o:["Decorar el reporte","Evaluar, analizar y optimizar tu tarea comercial","Competir con otros vendedores","Justificar descuentos"],a:1,e:"Si no la puedes medir, no la puedes mejorar."},
+ {q:"¿Qué es lo primero que muestra un buen perfil de LinkedIn según la sesión?",o:["Tu CV completo","Cómo ayudas a tus clientes, con foto profesional y headline en 2 líneas","Tus precios","Tus vacaciones"],a:1,e:"No es tu CV en línea, es un lugar para posicionarte."},
+ {q:"¿Por qué dos clientes que compran la misma solución no resuelven el mismo problema?",o:["Porque pagan distinto","Porque cada contexto, buyer persona e impacto es distinto","Por la marca","No es cierto"],a:1,e:"Por eso el descubrimiento no se copia y se pega."},
+ {q:"¿Qué ordena el 30-60-90?",o:["Las vacaciones","Hitos con fechas, 1:1 y reuniones de equipo para convertir objetivos en realidad","Los descuentos","Las licencias"],a:1,e:"Es la parte T de SMART: fechas claras con milestones."}
+ ]}
+);
+
+const CATN=["Prospección","Descubrimiento","Comité de compra","Venta de valor","Objeciones","Negociación","Cierre","Psicología de ventas"];
+/* Misiones BLITZ: f = foco (n nuevos, b clientes actuales, a ambos), lv = nivel mínimo recomendado 1..3, cards = jugadas del Play Deck */
+const MISSIONS=[
+{id:"m1a",m:1,lv:1,f:"a",t:"Perfil que posiciona",d:"Actualiza tu perfil de LinkedIn: foto profesional, headline en 2 líneas con tu por qué y un llamado a la acción.",ev:"Enlace a tu perfil",cards:[1,7],xp:30},
+{id:"m1b",m:1,lv:2,f:"n",t:"5 conexiones con valor",d:"Envía 5 invitaciones a decisores de cuentas nuevas con un mensaje de valor y sin pedir nada.",ev:"Cuentas y roles contactados",cards:[2,3,4],xp:40,goal:5},
+{id:"m1c",m:1,lv:3,f:"a",t:"Publica con la fórmula 70-20-10",d:"Publica 3 contenidos esta semana: industria, empresa y personal. Mide interacción.",ev:"Enlace o resultados",cards:[7,8],xp:50,goal:3},
+{id:"m2a",m:2,lv:1,f:"a",t:"Tus horas sagradas",d:"Bloquea 3 horas diarias de prospección durante 5 días y cumple los bloques.",ev:"Qué lograste cada día",cards:[1,5],xp:40,goal:5},
+{id:"m2b",m:2,lv:2,f:"n",t:"10 cuentas, mensaje multicanal",d:"Nombra 10 cuentas de tu PCI y toca cada una por 2 canales distintos con mensajes cortos.",ev:"Lista de cuentas y canales",cards:[2,4,5,6],xp:60,goal:10},
+{id:"m2c",m:2,lv:2,f:"b",t:"Reactiva clientes inactivos",d:"Reengancha 5 clientes inactivos con 1 a 3 toques de valor. Registra respuestas.",ev:"Clientes y respuesta",cards:[3,5,8],xp:50,goal:5},
+{id:"m2d",m:2,lv:3,f:"a",t:"Cobertura de pipeline",d:"Calcula el pipeline que necesitas según tu cuota y tu tasa de cierre, y mide tu brecha.",ev:"Tus números",cards:[46,47],xp:40},
+{id:"m3a",m:3,lv:1,f:"a",t:"Pitch en 3 versiones",d:"Escribe tu pitch de 15, 30 y 60 segundos y pruébalo con un colega.",ev:"Tu pitch de 30 segundos",cards:[1,7,8],xp:40},
+{id:"m3b",m:3,lv:2,f:"n",t:"3 descubrimientos con 5 factores",d:"En 3 conversaciones nuevas, documenta hechos, problemas, impacto, causas y efecto.",ev:"Resumen de una conversación",cards:[9,10,11,12],xp:70,goal:3},
+{id:"m3c",m:3,lv:2,f:"b",t:"Descubrimiento en cuenta actual",d:"Haz una reunión de descubrimiento con un cliente actual para hallar un problema nuevo que podamos resolver.",ev:"Problema hallado",cards:[9,13,14,19],xp:70},
+{id:"m3d",m:3,lv:3,f:"a",t:"Un insight que desafía",d:"Prepara un punto de vista distinto para una cuenta y preséntalo con datos.",ev:"Insight y respuesta",cards:[24,25,27,28],xp:70},
+{id:"m4a",m:4,lv:1,f:"a",t:"Pescar con red",d:"En 2 reuniones usa solo preguntas abiertas y resume antes de seguir.",ev:"Preguntas que usaste",cards:[9,13],xp:40,goal:2},
+{id:"m4b",m:4,lv:2,f:"a",t:"Mi plataforma de negociación",d:"Completa tu plataforma: pros y contras, información a pedir y cuidar, concesiones a dar y pedir.",ev:"Tu plataforma",cards:[41,42,43,44],xp:60},
+{id:"m4c",m:4,lv:3,f:"b",t:"Mapa de la experiencia de compra",d:"Mapea para una cuenta actual dónde aportas valor y dónde puede ganarte la competencia.",ev:"Tu mapa",cards:[26,27,29],xp:60},
+{id:"m5a",m:5,lv:1,f:"a",t:"Responde la objeción de precio",d:"Practica en role play la respuesta a “es muy caro” sin dar descuento.",ev:"Tu respuesta",cards:[31,37,41],xp:40},
+{id:"m5b",m:5,lv:2,f:"n",t:"Entiende el proceso de decisión",d:"En 2 oportunidades nuevas confirma quién, cómo, dónde, qué, por qué ahora y cuándo.",ev:"Resumen por oportunidad",cards:[17,18,38,46],xp:70,goal:2},
+{id:"m5c",m:5,lv:2,f:"b",t:"Cross y up-selling con permiso",d:"Propón un servicio adicional o un nuevo departamento a 2 clientes con un caso de éxito.",ev:"Cliente y respuesta",cards:[20,23,47,49],xp:70,goal:2},
+{id:"m5d",m:5,lv:3,f:"a",t:"Pide un referido",d:"Pide una referencia a un cliente satisfecho, con una acción concreta para el referente.",ev:"Quién y cuándo",cards:[18,47,49],xp:60},
+{id:"m6a",m:6,lv:1,f:"a",t:"Mi hábito base",d:"Define señal, acción y premio para un hábito de prospección y practícalo 7 días.",ev:"Cómo te fue",cards:[50,51],xp:40,goal:7},
+{id:"m6b",m:6,lv:2,f:"a",t:"Objetivo SMART 30-60-90",d:"Escribe un objetivo SMART con hitos a 30, 60 y 90 días.",ev:"Tu objetivo",cards:[46,52],xp:50},
+{id:"m6c",m:6,lv:3,f:"a",t:"Mi brand story en 7 pasos",d:"Escribe tu historia de marca con el cliente como héroe y tú como guía.",ev:"Tu historia",cards:[26,28,30],xp:60},
+{id:"m7a",m:7,lv:1,f:"a",t:"Tu roadmap completo",d:"Completa las 4 etapas de tu roadmap y compártelo con tu líder.",ev:"Resumen de tu roadmap",cards:[1,9,24,46],xp:80},
+{id:"m7b",m:7,lv:2,f:"a",t:"Calibra tu detector 1.0",d:"Documenta problemas por buyer persona y valida el detector con una conversación real.",ev:"Tu detector",cards:[10,11,12,15],xp:70},
+{id:"m7c",m:7,lv:3,f:"a",t:"Lidera un BLITZ de tu equipo",d:"Diseña un sprint con metas, cadencia y revisión semanal para tu equipo o territorio.",ev:"Plan del sprint",cards:[46,47,48,52],xp:90}
+];
+/* Examen final: escenarios */
+const EXAM=[
+{m:1,q:"Un decisor aceptó tu invitación. ¿Qué mensaje envías primero?",o:["Mi pitch con precios","Agradecimiento y un contenido útil para su industria","Una reunión de 1 hora","Un PDF con el catálogo"],a:1,e:"Primero valor y confianza. El pitch en frío rompe la relación."},
+{m:1,q:"Quieres publicar esta semana. ¿Qué mezcla de contenido usas?",o:["100% producto","70% industria, 20% empresa, 10% personal","50% ofertas, 50% memes","Solo casos de éxito"],a:1,e:"La fórmula 70-20-10 construye autoridad sin sonar a pitch."},
+{m:1,q:"Un prospecto sin ninguna familiaridad contigo. ¿Cuántos toques puede requerir?",o:["1 a 3","4 a 6","20 a 50","Ninguno"],a:2,e:"La familiaridad se construye con muchos toques de valor."},
+{m:2,q:"Si hoy no prospectas, ¿cuándo lo pagas?",o:["Nunca","En los próximos 90 días","Mañana","En 5 años"],a:1,e:"La prospección de 30 días da resultados en los siguientes 90."},
+{m:2,q:"Cuota de $20,000 y cierre del 25%. ¿Qué pipeline necesitas?",o:["$40,000","$60,000","$80,000","$100,000"],a:2,e:"20,000 dividido entre 0.25 es 80,000."},
+{m:2,q:"¿Cuál es la longitud sugerida del mensaje por LinkedIn o email?",o:["Más de 300 palabras","Menos de 100 palabras, terminando en pregunta","Solo un emoji","Un adjunto de 20 páginas"],a:1,e:"Corto, relevante y con una pregunta que invite a responder."},
+{m:3,q:"El cliente pide una demo en la primera llamada. ¿Qué haces?",o:["Muestras todas las funciones","Haces descubrimiento primero y luego demuestras hasta 6 funciones","Envías un video","Rechazas la reunión"],a:1,e:"Sin descubrimiento no hay demo."},
+{m:3,q:"¿Cuál es el estilo de vendedor que gana más en ventas complejas?",o:["Lobo solitario","Solucionador reactivo","Desafiante","Trabajador"],a:2,e:"El desafiante lleva su éxito de 39% a 54%."},
+{m:3,q:"El cliente dice “queremos más eficiencia”. ¿Qué haces?",o:["Anotas y sigues","Cuantificas: “¿cuánta productividad es 15% más?”","Subes el precio","Cambias de tema"],a:1,e:"Los resultados cuantificables sostienen el valor."},
+{m:4,q:"¿Qué haces antes de reunirte con un cliente según Sandler?",o:["Nada","Firmas un contrato previo con objetivo, agenda y tiempo","Envías la propuesta","Pides descuento"],a:1,e:"Acuerdas expectativas y cómo decidirán si hay fit."},
+{m:4,q:"El cliente describe un problema. ¿Qué es lo mejor que puedes hacer?",o:["Dar la solución inmediata","Resumir lo que oíste y preguntar “cuéntame más sobre...”","Cambiar el tema al precio","Interrumpir"],a:1,e:"Escuchar activamente abre más información y confianza."},
+{m:4,q:"El cliente se siente incómodo con la negociación. ¿Qué pasa si siente que fue injusta?",o:["Nada","Sale del negocio o hace dolorosa la implementación","Compra más","Te agradece"],a:1,e:"La percepción de injusticia destruye valor a largo plazo."},
+{m:5,q:"Un prospecto desaparece. ¿Qué dices?",o:["¿Sigues vivo?","“Estoy confundido. Tú dijiste...” y recuerdas estado actual y futuro","Le mandas descuento","Lo borras"],a:1,e:"Acciona con el estado actual y futuro, sin hablar del producto."},
+{m:5,q:"Te piden un trial. ¿Cuándo aceptas?",o:["Siempre","Cuando pagan instalación, definen métricas y se comprometen a comprar","Cuando lo piden 2 veces","Nunca"],a:1,e:"Si y solo si."},
+{m:5,q:"El cliente está satisfecho. ¿Cuál es el mejor paso para obtener referidos?",o:["Esperar que lleguen","Un email genérico","Que lo pida quien tenga mejor relación, atado a una acción concreta","Una encuesta"],a:2,e:"El referido debe implicar una acción del referente."},
+{m:6,q:"¿Cuál es el hábito mejor definido?",o:["Voy a prospectar más","Cuando veo el teléfono (señal), prospecto (acción) y registro el avance (premio)","Hacer algo","Intentar"],a:1,e:"Señal, acción y premio."},
+{m:6,q:"¿Qué debes visualizar para sostener tus hábitos?",o:["El resultado final","El proceso de tu día","El bono","Nada"],a:1,e:"Visualizar el proceso entrena la ejecución."},
+{m:6,q:"En tu brand story, ¿quién es el villano?",o:["El competidor","El problema del cliente definido desde su óptica","El gerente","El precio"],a:1,e:"Es la raíz del problema, con nivel externo, interno y filosófico."},
+{m:7,q:"¿Qué etapa del roadmap incluye elevator pitch, brecha y detector de problemas?",o:["Etapa 1","Etapa 2","Etapa 3","Etapa 4"],a:2,e:"Etapa 3: pitch, brecha y puente y detector 1.0."},
+{m:7,q:"¿Qué métricas incluyes en tu roadmap?",o:["Las que se pueden evaluar, analizar y optimizar","Las que lucen bien","Ninguna","Solo ventas ganadas"],a:0,e:"Lo que no se mide no se mejora."},
+{m:7,q:"Buscas crecer cuentas actuales. ¿Qué priorizas?",o:["Solo prospección fría","Multithread, valor, cross y up-selling, y referidos","Solo descuentos","Cerrar rápido"],a:1,e:"Para base instalada importan el multihilo y la expansión."}
+];
+/* Diagnóstico de nivel y foco */
+const DIAG=[
+{q:"¿Cuánto tiempo llevas vendiendo servicios B2B?",o:["Menos de 1 año","1 a 3 años","Más de 3 años"],pts:[0,1,2]},
+{q:"¿Con qué frecuencia prospectas de forma planificada?",o:["Casi nunca","Algunos días","Todos los días con bloques fijos"],pts:[0,1,2]},
+{q:"¿Qué tan seguro estás en conversaciones de descubrimiento?",o:["Todavía improviso","Tengo preguntas base","Uso una estructura y cuantifico el impacto"],pts:[0,1,2]},
+{q:"¿Cómo manejas hoy la negociación y el precio?",o:["Doy descuento para cerrar","Tengo límites pero improviso","Uso plataforma de negociación y concesiones recíprocas"],pts:[0,1,2]},
+{q:"¿Cómo llevas tu pipeline y tus métricas?",o:["No las llevo","Las reviso a veces","Reviso semanalmente con metas 30-60-90"],pts:[0,1,2]}
+];
+const LEVELS=[
+{n:"Arranque",d:"Construyes la base: perfil, rutina y primeras conversaciones.",c:"Recorres los 7 módulos completos."},
+{n:"Impulso",d:"Ya vendes con método. Ahora afinas descubrimiento, negociación y cierre.",c:"Puedes saltar a los quizzes y repasar solo lo que falle."},
+{n:"Liderazgo",d:"Eres referente. Aplicas el método y lo llevas al equipo.",c:"Examen de salida y misiones de nivel avanzado."}
+];
+const FOCUS={
+n:{n:"Nuevos clientes",d:"Abrir cuentas nuevas con prospección, descubrimiento y comité de compra.",ord:[1,2,3,4,5,6,7],cats:[0,1,2,3,4,5,6,7]},
+b:{n:"Clientes actuales",d:"Crecer cuentas con valor, multihilo, up y cross selling y referidos.",ord:[3,4,5,2,1,6,7],cats:[1,2,3,6,5,4,7,0]},
+a:{n:"Ambos",d:"Equilibrio entre abrir cuentas nuevas y crecer las actuales.",ord:[1,2,3,4,5,6,7],cats:[0,1,2,3,4,5,6,7]}
+};
+const BLITZ_DEF={name:"BLITZ",desc:"Sprint comercial en ejecución. Cada misión que entregas suma a las metas del equipo.",start:"",end:"",goal:50};
+const VIDEO_DEF={};
+
+const CARDS=[{"n": 1, "c": 0, "t": "Los primeros 10 segundos"}, {"n": 2, "c": 0, "t": "El evento disparador"}, {"n": 3, "c": 0, "t": "La introducción cálida"}, {"n": 4, "c": 0, "t": "El outreach personalizado"}, {"n": 5, "c": 0, "t": "La fórmula del seguimiento"}, {"n": 6, "c": 0, "t": "El gancho de reunión"}, {"n": 7, "c": 0, "t": "Aporta valor antes de pedir atención"}, {"n": 8, "c": 0, "t": "Vende el valor de la conversación"}, {"n": 9, "c": 1, "t": "Mejores preguntas"}, {"n": 10, "c": 1, "t": "Encuentra el dolor real"}, {"n": 11, "c": 1, "t": "El costo de no hacer nada"}, {"n": 12, "c": 1, "t": "Los cinco porqués"}, {"n": 13, "c": 1, "t": "Escucha más, vende menos"}, {"n": 14, "c": 1, "t": "Más allá del brief"}, {"n": 15, "c": 1, "t": "Califica o aléjate"}, {"n": 16, "c": 1, "t": "La minuta de la reunión"}, {"n": 17, "c": 2, "t": "Encuentra al comprador económico"}, {"n": 18, "c": 2, "t": "Arma a tu campeón"}, {"n": 19, "c": 2, "t": "El influenciador oculto"}, {"n": 20, "c": 2, "t": "Multihilo en la cuenta"}, {"n": 21, "c": 2, "t": "Habla su idioma"}, {"n": 22, "c": 2, "t": "Global vs. región"}, {"n": 23, "c": 2, "t": "El vendedor interno"}, {"n": 24, "c": 3, "t": "Resultados, no funciones"}, {"n": 25, "c": 3, "t": "La historia del ROI"}, {"n": 26, "c": 3, "t": "Antes y después"}, {"n": 27, "c": 3, "t": "Diferénciate o desaparece"}, {"n": 28, "c": 3, "t": "El caso de negocio"}, {"n": 29, "c": 3, "t": "Pruebas que superan promesas"}, {"n": 30, "c": 3, "t": "El pitch ejecutivo"}, {"n": 31, "c": 4, "t": "Es muy caro"}, {"n": 32, "c": 4, "t": "Mándame información"}, {"n": 33, "c": 4, "t": "Ya tenemos agencia"}, {"n": 34, "c": 4, "t": "No es el momento"}, {"n": 35, "c": 4, "t": "Lo tengo que pensar"}, {"n": 36, "c": 4, "t": "La competencia es más barata"}, {"n": 37, "c": 4, "t": "No hay presupuesto"}, {"n": 38, "c": 4, "t": "Necesito aprobación de mi jefe"}, {"n": 39, "c": 4, "t": "Ya lo intentamos antes"}, {"n": 40, "c": 4, "t": "El prospecto silencioso"}, {"n": 41, "c": 5, "t": "Nunca descuentes gratis"}, {"n": 42, "c": 5, "t": "La regla de dar y recibir"}, {"n": 43, "c": 5, "t": "El juego de compras"}, {"n": 44, "c": 5, "t": "Conoce tu punto de salida"}, {"n": 45, "c": 5, "t": "Negocia, no te rindas"}, {"n": 46, "c": 6, "t": "Asegura siempre el siguiente paso"}, {"n": 47, "c": 6, "t": "El plan de acción mutuo"}, {"n": 48, "c": 6, "t": "Detecta señales de compra"}, {"n": 49, "c": 6, "t": "Pide el compromiso"}, {"n": 50, "c": 7, "t": "El poder del silencio"}, {"n": 51, "c": 7, "t": "La curiosidad gana"}, {"n": 52, "c": 7, "t": "La ecuación de confianza"}];
+const LOGO_URI="data:image/png;base64,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";
+/* ===== Academia MarketLogic: núcleo ===== */
+const DOMAIN="@mymarketlogic.com";
+const PLAY_URL=(window.MLA_CONFIG&&window.MLA_CONFIG.playUrl)||"https://claude.ai/artifact/GmofmDvHagTFgxTZYLnpTk";
+const PASS=.8;
+const $=(s,r)=>(r||document).querySelector(s);
+function el(t,a){const e=document.createElement(t);
+ if(a)for(const x in a){const v=a[x];if(v==null||v===false)continue;
+  if(x==="class")e.className=v;else if(x==="on"){for(const ev in v)e.addEventListener(ev,v[ev])}
+  else if(x==="text")e.textContent=v;else if(x==="value"||x==="disabled"||x==="checked")e[x]=v;
+  else e.setAttribute(x,v===true?"":v)}
+ for(let i=2;i<arguments.length;i++)add(e,arguments[i]);return e}
+function add(e,k){if(k==null||k===false)return;if(Array.isArray(k))k.forEach(x=>add(e,x));else e.appendChild(typeof k==="object"?k:document.createTextNode(String(k)))}
+const lsGet=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
+const lsSet=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const fmtD=t=>t?new Date(t).toLocaleDateString("es",{day:"numeric",month:"short",year:"numeric"}):"";
+const pct=(a,b)=>b?Math.round(a*100/b):0;
+const modOf=id=>MODS.find(m=>m.id===id);
+const cardOf=n=>CARDS.find(c=>c.n===n);
+const keyOf=id=>String(id).replace(".","_");
+const LEV=["Arranque","Impulso","Liderazgo"];
+
+const S={db:null,user:null,uid:"",email:"",name:"",vf:"",admin:false,L:null,local:false,warn:"",sync:"",syncMsg:"",noWrite:false,mcp:null,perm:null,acc:null,hsName:"",
+ cfg:{blitz:Object.assign({},BLITZ_DEF,{min:3,play:PLAY_URL}),videos:{}},pulse:[],vals:{},names:{},
+ view:"boot",tab:"ruta",modId:null,sub:null,sc:0,play:true,qz:null,ex:null,open:null,ob:null,team:null,tsub:"res",mf:"all"};
+let timer=null,saveT=null,retryT=null;
+const reduce=()=>{try{return matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){return false}};
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>{t.hidden=true},3200)}
+
+/* ---------- datos del aprendiz ---------- */
+function newL(){return{v:1,em:S.email,vf:S.vf,lv:null,fo:null,les:{},qz:{},ms:{},ex:{best:0,tries:0,ts:0},cert:null,xp:0,t0:Date.now(),t:Date.now()}}
+const L=()=>S.L;
+const lessonDone=id=>!!L().les[id];
+const modLessonsDone=m=>m.lessons.filter(l=>lessonDone(l.id)).length;
+const modPassed=m=>!!(L().qz[m.id]&&L().qz[m.id].pass);
+const modsDone=()=>MODS.filter(modPassed).length;
+const quizOpen=m=>L().lv>=1||modLessonsDone(m)===m.lessons.length;
+const missDone=()=>Object.keys(L().ms).length;
+const xpTotal=()=>L().xp;
+function addXp(n){L().xp+=n}
+function pulseOf(){const l=L();return{xp:l.xp,ms:Object.keys(l.ms).length,md:modsDone(),ex:l.ex.best>=PASS*100?1:0,ct:l.cert?1:0,t:Date.now()}}
+/* une dos copias del avance sin perder nada */
+function mergeL(a,b){
+ const o=Object.assign({},a);
+ o.les=Object.assign({},b.les||{},a.les||{});
+ o.ms=Object.assign({},b.ms||{},a.ms||{});
+ o.qz=Object.assign({},b.qz||{});
+ Object.keys(a.qz||{}).forEach(k=>{const x=a.qz[k],y=o.qz[k];o.qz[k]=!y?x:{best:Math.max(x.best||0,y.best||0),pass:!!(x.pass||y.pass),ts:Math.max(x.ts||0,y.ts||0),tries:Math.max(x.tries||0,y.tries||0)}});
+ const ea=a.ex||{best:0,tries:0,ts:0},eb=b.ex||{best:0,tries:0,ts:0};
+ o.ex={best:Math.max(ea.best,eb.best),tries:Math.max(ea.tries,eb.tries),ts:Math.max(ea.ts,eb.ts)};
+ o.cert=a.cert||b.cert||null;
+ o.xp=Math.max(a.xp||0,b.xp||0);
+ if(o.lv==null)o.lv=b.lv==null?null:b.lv;if(o.fo==null)o.fo=b.fo||null;
+ o.t0=Math.min(a.t0||Date.now(),b.t0||Date.now());o.t=Math.max(a.t||0,b.t||0);
+ return o}
+/* estado de guardado: ok, wait, err, local */
+function setSync(s){S.sync=s;const e=$("#sync");if(e){e.className="pill "+(s==="ok"?"ok":s==="wait"?"":"or");e.textContent=({ok:"Guardado en la nube",wait:"Guardando...",err:"No se pudo guardar. Reintentando",local:"Solo en este navegador"})[s]||"";e.title=S.syncMsg||""}}
+function save(){L().t=Date.now();lsSet("mla_L_"+S.uid,JSON.stringify(L()));if(S.db&&!S.noWrite){setSync("wait");clearTimeout(saveT);saveT=setTimeout(flush,400)}else setSync("local")}
+async function flush(){
+ clearTimeout(saveT);clearTimeout(retryT);
+ if(!S.db||S.noWrite||!S.L)return;
+ try{await S.db.doc("learners/"+S.uid).set(L());await S.db.doc("pulse/"+S.uid).set(pulseOf());S.syncMsg="Último guardado "+new Date().toLocaleTimeString("es",{hour:"2-digit",minute:"2-digit"});setSync("ok")}
+ catch(e){const c=e&&e.code;
+  if(c==="permission_denied"||c==="not_granted"||c==="forbidden"||c==="unauthorized"){S.noWrite=true;S.warn="Tu acceso no permite guardar en la nube. Pide al editor que te comparta con nivel Contributor. Mientras tanto tu avance queda en este navegador y puedes descargar una copia.";setSync("local");render()}
+  else{S.syncMsg="Error "+(c||"de red");setSync("err");retryT=setTimeout(flush,8000)}}}
+function leaving(){if(S.L)lsSet("mla_L_"+S.uid,JSON.stringify(L()));if(S.db&&!S.noWrite&&S.sync!=="ok")flush()}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")leaving()});
+window.addEventListener("pagehide",leaving);
+
+/* ---------- arranque y autenticación ---------- */
+const HS_ACCOUNT=20209541;
+const okMail=e=>/^[^\s@]+@mymarketlogic\.com$/i.test(e||"");
+const VF={h:"HubSpot",a:"Aprobado",e:"Editor",g:"Google"};
+async function hubspotWho(){
+ if(!S.mcp)throw{code:"unavailable"};
+ const r=await S.mcp.callTool("HubSpot","get_user_details",{});
+ let p=r&&r.payload;
+ if(!p&&r&&r.content){try{p=JSON.parse((r.content.find(c=>c.type==="text")||{}).text)}catch(e){}}
+ if(typeof p==="string"){try{p=JSON.parse(p)}catch(e){}}
+ const ui=(p&&p.userInformation)||{};
+ return{email:String(ui.email||"").toLowerCase(),acc:p&&p.accountId,name:[ui.firstName,ui.lastName].filter(Boolean).join(" ")}}
+async function tryHubspot(){
+ const w=await hubspotWho();
+ if(!okMail(w.email)||(w.acc!=null&&+w.acc!==HS_ACCOUNT))throw{code:"not_corporate",email:w.email};
+ S.email=w.email;S.vf="h";if(w.name)S.hsName=w.name;return true}
+async function readAccess(){
+ if(!S.db)return null;
+ try{const sn=await S.db.doc("access/"+S.uid).get();return sn.exists?sn.data():null}catch(e){return null}}
+const isPwa=()=>!!(window.claude&&window.claude.__pwa);
+async function bootPwa(){
+ const C=window.claude;
+ if(!C.cfgOk)return gateView("Falta configurar la conexión (archivo config.js). Revisa docs/SETUP.md.");
+ let ses=null;try{ses=await C.auth.ready()}catch(e){}
+ if(!ses)return pwaGate(C.auth.urlError());
+ try{S.user=await C.use("user");S.db=await C.use("db")}catch(e){}
+ const me=await S.user.me();
+ S.uid=me.id;S.name=me.name||"";S.email=me.email||"";
+ try{S.admin=!!(await S.user.canEdit())}catch(e){}
+ if(!S.admin&&!okMail(S.email)){await C.auth.signOut(true);return pwaGate("Usa tu cuenta corporativa "+DOMAIN+".")}
+ S.acc=await readAccess();
+ if(S.acc&&S.acc.ok===false&&!S.admin)return blocked();
+ S.vf=S.admin?"e":"g";
+ return enter()}
+function pwaGate(note){
+ const er=el("div",{class:"err",role:"alert"},note||"");
+ const b=el("button",{class:"btn",on:{click:async()=>{b.disabled=true;b.textContent="Abriendo Google...";try{await window.claude.auth.signIn()}catch(e){b.disabled=false;b.textContent="Entrar con Google";er.textContent="No se pudo iniciar el acceso. Intenta de nuevo."}}}},"Entrar con Google");
+ gateView("Acceso solo para el equipo de MarketLogic. Entra con tu cuenta corporativa "+DOMAIN+".",el("div",{class:"fld"},b,er))}
+async function boot(){
+ gateView("Verificando tu acceso...");
+ if(isPwa())return bootPwa();
+ const use=(window.claude&&window.claude.use)?window.claude.use.bind(window.claude):async()=>null;
+ try{S.user=await use("user")}catch(e){}
+ try{S.db=await use("db")}catch(e){}
+ try{S.mcp=await use("mcp")}catch(e){}
+ try{S.perm=await use("permissions")}catch(e){}
+ if(S.user){try{const me=await S.user.me();S.uid=me.id||"";S.name=me.name||""}catch(e){}
+  try{S.admin=!!(await S.user.canEdit())}catch(e){}
+  try{const w=await S.user.can("data.write");if(w===false)S.noWrite=true}catch(e){}}
+ if(!S.uid){S.uid=lsGet("mla_uid")||("loc-"+Math.random().toString(36).slice(2,10));lsSet("mla_uid",S.uid)}
+ if(S.admin){S.vf="e";return enter()}
+ S.acc=await readAccess();
+ if(S.acc&&S.acc.ok===false)return blocked();
+ let st="prompt";try{if(S.perm)st=await S.perm.state("mcp")}catch(e){}
+ if(st==="granted"){try{await tryHubspot();return enter()}catch(e){}}
+ if(S.acc&&S.acc.ok===true){S.email=S.acc.em||"";S.vf="a";return enter()}
+ return authGate()}
+function gateView(msg,extra){
+ const m=$("#main");$("#bar").hidden=true;$("#foot").hidden=true;m.className="";m.replaceChildren(
+  el("div",{class:"gate"},el("div",{class:"gate-in"},el("img",{src:LOGO_URI,alt:"MarketLogic"}),el("span",{class:"kick"},"Sales Learning Path"),el("h1",null,"Academia MarketLogic"),el("p",null,msg),extra)))}
+function blocked(){gateView("Tu acceso a esta academia está suspendido. Escribe al equipo de Marketing si crees que es un error.",el("div",null,el("p",{class:"err"},"Acceso restringido."),isPwa()?el("button",{class:"btn ghost",style:"margin-top:14px",on:{click:()=>window.claude.auth.signOut()}},"Salir"):null))}
+async function authGate(note){
+ let req=null;
+ if(S.db){try{const sn=await S.db.doc("requests/"+S.uid).get();if(sn.exists)req=sn.data()}catch(e){}}
+ const er=el("div",{class:"err",role:"alert"},note||"");
+ const box=el("div",null);
+ if(S.mcp){
+  const b=el("button",{class:"btn",on:{click:async()=>{
+   b.disabled=true;b.textContent="Verificando...";er.textContent="";
+   try{await tryHubspot();enter()}
+   catch(e){b.disabled=false;b.textContent="Verificar con HubSpot";
+    er.textContent=e&&e.code==="not_corporate"?"Esa cuenta de HubSpot"+(e.email?" ("+e.email+")":"")+" no es de MarketLogic.":e&&e.code==="declined"||e&&e.code==="not_granted"||e&&e.code==="consent_declined"?"No autorizaste la verificación. Puedes pedir acceso con tu correo.":"No se pudo verificar con HubSpot. Pide acceso con tu correo."}}}},"Verificar con HubSpot");
+  box.appendChild(el("div",{class:"fld"},el("label",null,"Opción 1 · Automática"),el("p",{style:"margin-bottom:12px"},"Confirmamos tu correo corporativo con tu cuenta de HubSpot de MarketLogic. Solo leemos tu correo y nombre."),b))}
+ const inp=el("input",{class:"inp",type:"email",placeholder:"nombre"+DOMAIN,autocomplete:"email",id:"gEmail",value:req?req.em:""});
+ const st=el("p",{style:"margin-top:10px"},req?"Solicitud enviada. Un editor debe aprobarla.":"");
+ const send=el("button",{class:"btn ghost",on:{click:async()=>{
+  const v=inp.value.trim().toLowerCase();er.textContent="";
+  if(!okMail(v)){er.textContent="Usa tu correo corporativo "+DOMAIN;return}
+  if(!S.db){er.textContent="No hay base compartida disponible en esta vista.";return}
+  try{await S.db.doc("requests/"+S.uid).set({em:v,ts:Date.now(),nm:S.name||""});st.textContent="Solicitud enviada. Un editor debe aprobarla.";recheck.hidden=false}
+  catch(e){er.textContent="No pudimos enviar la solicitud. Pide que te compartan la Academia con nivel Contributor."}}}},req?"Reenviar solicitud":"Solicitar acceso");
+ const recheck=el("button",{class:"btn ghost",hidden:!req,on:{click:async()=>{
+  S.acc=await readAccess();
+  if(S.acc&&S.acc.ok===false)return blocked();
+  if(S.acc&&S.acc.ok===true){S.email=S.acc.em||"";S.vf="a";return enter()}
+  st.textContent="Sigue pendiente de aprobación."}}},"Revisar estado");
+ box.appendChild(el("div",{class:"fld"},el("label",{for:"gEmail"},S.mcp?"Opción 2 · Con aprobación de un editor":"Solicita acceso"),inp,el("div",{style:"margin-top:12px;display:flex;gap:10px;flex-wrap:wrap"},send,recheck),st));
+ box.appendChild(er);
+ gateView("Acceso solo para el equipo de MarketLogic. Verifica tu identidad para entrar.",box)}
+
+async function enter(){
+ gateView("Cargando tu avance...");
+ let cloud=null,loc=null;
+ if(S.db){
+  try{const sn=await S.db.doc("learners/"+S.uid).get();if(sn.exists)cloud=sn.data()}
+  catch(e){S.syncMsg="Sin lectura de la base ("+((e&&e.code)||"error")+")"}}
+ try{const j=lsGet("mla_L_"+S.uid);if(j)loc=JSON.parse(j)}catch(e){}
+ const base=newL();
+ S.L=cloud&&loc?Object.assign(base,mergeL(cloud,loc)):Object.assign(base,cloud||loc||{});
+ if(S.email)S.L.em=S.email;S.L.vf=S.vf||S.L.vf;
+ if(S.db){
+  try{const c=await S.db.doc("config/blitz").get();if(c.exists)Object.assign(S.cfg.blitz,c.data())}catch(e){}
+  try{const v=await S.db.doc("config/videos").get();if(v.exists)S.cfg.videos=v.data()}catch(e){}
+  try{const v=await S.db.doc("vals/"+S.uid).get();if(v.exists)S.vals=v.data()}catch(e){}
+  try{S.db.collection("pulse").onSnapshot(sn=>{S.pulse=sn.docs.map(d=>Object.assign({id:d.id},d.data()));resolveNames(S.pulse.map(p=>p.id));if(S.view==="app"&&(S.tab==="ruta"||S.tab==="mis"))render()},()=>{})}catch(e){}}
+ if(S.noWrite&&S.db)S.warn="Tu acceso no permite guardar en la nube. Pide al editor que te comparta con nivel Contributor. Mientras tanto tu avance queda en este navegador y puedes descargar una copia.";
+ if(!S.db)S.warn="Esta vista no tiene base compartida. Tu avance queda en este navegador.";
+ $("#bar").hidden=false;$("#foot").hidden=false;
+ S.view=L().lv==null?"onboard":"app";
+ if(S.view==="onboard")S.ob={i:0,pts:[],fo:null};
+ render();
+ if(S.db&&!S.noWrite)flush();else setSync("local")}
+async function resolveNames(ids){
+ if(!S.user||!S.user.profiles)return;
+ const need=ids.filter(i=>!(i in S.names));if(!need.length)return;
+ try{const ps=await S.user.profiles(need);need.forEach(i=>{S.names[i]=(ps[i]&&ps[i].name)||""});}catch(e){need.forEach(i=>{S.names[i]=""})}
+ if(S.view==="app"&&(S.tab==="ruta"||S.tab==="mis"))render()}
+const nameOf=id=>S.names[id]||"Colega";
+
+/* ---------- render raíz ---------- */
+function go(tab,mod,sub){clearTimeout(timer);S.tab=tab;S.modId=mod||null;S.sub=sub||null;S.sc=0;S.qz=null;S.open=null;render();window.scrollTo(0,0);try{$("#main").focus({preventScroll:true})}catch(e){}}
+function render(){
+ clearTimeout(timer);
+ if(S.view==="boot")return;
+ const m=$("#main");m.className="wrapx";
+ renderBar();
+ if(S.view==="onboard")viewOnboard(m);
+ else if(S.tab==="mod")viewModule(m);
+ else if(S.tab==="mis")viewMissions(m);
+ else if(S.tab==="cert")viewCert(m);
+ else if(S.tab==="team")viewTeam(m);
+ else viewHome(m);
+ if(S.warn&&S.view==="app")m.insertBefore(el("div",{class:"banner",role:"status"},S.warn),m.firstChild)}
+function tabBadge(k){
+ try{
+  if(!S.L||S.L.lv==null)return"";
+  if(k==="ruta")return modsDone()+"/"+MODS.length;
+  if(k==="mis")return missDone()?String(missDone()):"";
+  if(k==="cert"){if(S.L.cert)return"\u2713";const r=certReqs().filter(x=>x.ok).length;return r+"/3"}
+ }catch(e){}
+ return""}
+function renderBar(){
+ const t=$("#tabs");t.replaceChildren();
+ t.setAttribute("role","navigation");
+ if(S.view==="app"){
+  const T=[["ruta","Mi ruta","Mi ruta"],["mis","Misiones BLITZ","Misiones"],["cert","Examen y certificado","Certificado"]];
+  if(S.admin)T.push(["team","Equipo","Equipo"]);
+  T.forEach(([k,n,sh])=>{
+   const cur=(S.tab===k||(S.tab==="mod"&&k==="ruta"));
+   const bd=tabBadge(k);
+   const b=el("button",{"aria-current":cur?"page":null,"data-k":k,"aria-label":n,on:{click:()=>go(k)}},el("span",{class:"lg"},n),el("span",{class:"sm","aria-hidden":"true"},sh));
+   if(bd)b.appendChild(el("i",{class:"tb"+(bd==="\u2713"?" ok":"")},bd));
+   t.appendChild(b)});
+  t.onkeydown=e=>{
+   const bs=[...t.querySelectorAll("button")],i=bs.indexOf(document.activeElement);
+   if(i<0)return;
+   let j=null;
+   if(e.key==="ArrowRight")j=(i+1)%bs.length;
+   else if(e.key==="ArrowLeft")j=(i-1+bs.length)%bs.length;
+   else if(e.key==="Home")j=0;
+   else if(e.key==="End")j=bs.length-1;
+   if(j!==null){e.preventDefault();bs[j].focus()}};
+  const c=t.querySelector('[aria-current="page"]');
+  if(c&&c.scrollIntoView)try{c.scrollIntoView({block:"nearest",inline:"center"})}catch(e){}}
+ const w=$("#who");w.replaceChildren();
+ if(S.L){w.appendChild(el("b",{title:S.email},S.name||S.email||"Invitado"));
+  if(S.L.lv!=null)w.appendChild(el("span",{class:"pill or"},LEV[S.L.lv]));
+  w.appendChild(el("span",{id:"sync",class:"pill"}));setSync(S.sync||"local");
+  if(isPwa()){
+   if(window.claude.install&&window.claude.install.can())w.appendChild(el("button",{class:"btn ghost sm bar-b",on:{click:()=>window.claude.install.prompt()}},"Instalar app"));
+   w.appendChild(el("button",{class:"btn ghost sm bar-b",on:{click:()=>window.claude.auth.signOut()}},"Salir"))}}
+}
+$("#goHome").addEventListener("click",()=>{if(S.view==="app")go("ruta")});
+
+/* ===== Onboarding y Mi ruta ===== */
+function viewOnboard(m){
+ const o=S.ob,n=DIAG.length;m.replaceChildren();
+ const wrap=el("div",{style:"max-width:720px;margin:0 auto"});
+ const tot=n+1;
+ wrap.appendChild(el("div",{class:"steps"},Array.from({length:tot},(_,i)=>el("i",{class:i<o.i?"ok":i===o.i?"on":""}))));
+ if(o.i<n){
+  const q=DIAG[o.i];
+  wrap.appendChild(el("span",{class:"kick"},"Diagnóstico "+(o.i+1)+" de "+n));
+  wrap.appendChild(el("h1",{style:"font-size:clamp(24px,4vw,34px);font-weight:900;margin:8px 0 6px"},q.q));
+  wrap.appendChild(el("p",{class:"muted"},"Sin respuestas correctas. Con esto ordenamos tu ruta."));
+  q.o.forEach((t,i)=>wrap.appendChild(el("button",{class:"qopt",on:{click:()=>{o.pts[o.i]=q.pts[i];o.i++;render()}}},el("span",{class:"k"},"ABC"[i]),el("span",null,t))));
+  if(o.i>0)wrap.appendChild(el("p",{style:"margin-top:16px"},el("button",{class:"lnk",on:{click:()=>{o.i--;render()}}},"Volver")));
+ }else{
+  wrap.appendChild(el("span",{class:"kick"},"Tu alcance"));
+  wrap.appendChild(el("h1",{style:"font-size:clamp(24px,4vw,34px);font-weight:900;margin:8px 0 6px"},"¿Dónde quieres generar resultados en este BLITZ?"));
+  wrap.appendChild(el("p",{class:"muted"},"Tu foco cambia el orden de los módulos y las misiones que te proponemos."));
+  ["n","b","a"].forEach(k=>{const f=FOCUS[k];
+   wrap.appendChild(el("button",{class:"qopt"+(o.fo===k?" sel":""),on:{click:()=>{o.fo=k;render()}}},el("span",{class:"k"},k==="n"?"N":k==="b"?"C":"A"),el("span",null,el("b",{style:"font-family:var(--fh)"},f.n),el("br"),el("span",{class:"muted"},f.d))))});
+  wrap.appendChild(el("div",{style:"margin-top:18px;display:flex;gap:12px;align-items:center"},
+   el("button",{class:"btn",disabled:!o.fo,on:{click:finishOnboard}},"Ver mi ruta"),
+   el("button",{class:"lnk",on:{click:()=>{o.i--;render()}}},"Volver")))}
+ m.appendChild(wrap)}
+function finishOnboard(){
+ const sum=S.ob.pts.reduce((a,b)=>a+(b||0),0);
+ L().lv=sum<=3?0:sum<=7?1:2;L().fo=S.ob.fo;save();
+ S.view="app";S.tab="ruta";render();
+ toast("Tu nivel: "+LEV[L().lv]+". Ruta lista.")}
+
+function modOrder(){return FOCUS[L().fo||"a"].ord.map(modOf)}
+function nextMod(){return modOrder().find(m=>!modPassed(m))}
+function lessonsTotal(){return MODS.reduce((a,m)=>a+m.lessons.length,0)}
+function lessonsDoneAll(){return Object.keys(L().les).length}
+function ringSvg(p){
+ const r=40,c=2*Math.PI*r;
+ const s=document.createElementNS("http://www.w3.org/2000/svg","svg");s.setAttribute("viewBox","0 0 100 100");s.setAttribute("aria-hidden","true");
+ s.innerHTML='<circle cx="50" cy="50" r="40" fill="none" stroke="#3a4152" stroke-width="10"/><circle cx="50" cy="50" r="40" fill="none" stroke="#FF5B09" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+(c*p/100).toFixed(1)+' '+c.toFixed(1)+'" transform="rotate(-90 50 50)" style="transition:stroke-dasharray .8s"/>';
+ return s}
+function blitzCard(){
+ const b=S.cfg.blitz;
+ const sum=S.pulse.reduce((a,p)=>a+(p.ms||0),0)+(S.pulse.find(p=>p.id===S.uid)?0:Object.keys(L().ms).length);
+ const goal=b.goal||50,p=Math.min(100,pct(sum,goal));
+ const top=S.pulse.slice().sort((a,b2)=>(b2.xp||0)-(a.xp||0)).slice(0,5).filter(x=>(x.xp||0)>0);
+ const dates=(b.start||b.end)?[b.start,b.end].filter(Boolean).join(" a "):"";
+ return el("section",{class:"blitz","aria-label":"Estado del BLITZ"},
+  el("span",{class:"kick"},"Campaña en ejecución"),
+  el("h2",null,b.name||"BLITZ"),
+  el("p",{style:"color:var(--body)"},b.desc),
+  dates?el("p",{class:"muted",style:"font-size:13px"},dates):null,
+  el("div",null,el("div",{style:"display:flex;justify-content:space-between;font-family:var(--fh);font-weight:800;font-size:13px;margin-bottom:6px"},el("span",null,"Misiones del equipo"),el("span",null,sum+" / "+goal)),el("div",{class:"bar-p"},el("i",{style:"width:"+p+"%"}))),
+  top.length?el("ol",{class:"lb"},top.map((x,i)=>el("li",null,el("span",null,(i+1)+". "+(x.id===S.uid?"Tú":nameOf(x.id))),el("b",{style:"font-family:var(--fh)"},(x.xp||0)+" pts")))):null,
+  el("button",{class:"btn sm",on:{click:()=>go("mis")}},"Ver mis misiones"))}
+function viewHome(m){
+ m.replaceChildren();
+ const md=modsDone(),p=pct(md,MODS.length),nx=nextMod(),l=L();
+ const hero=el("div",{class:"hero"},
+  el("div",{class:"hero-l"},
+   el("span",{class:"kick"},FOCUS[l.fo||"a"].n+" · Nivel "+LEV[l.lv||0]),
+   el("h1",null,nx?"Sigue con "+nx.t:"Completaste los 7 módulos"),
+   el("p",null,nx?nx.p:"Rinde el examen final, entrega tus misiones y descarga tu certificado."),
+   el("div",{class:"ring"},ringSvg(p),el("div",null,el("div",{class:"num"},p+"%"),el("small",null,md+" de "+MODS.length+" módulos · "+lessonsDoneAll()+" de "+lessonsTotal()+" lecciones · "+xpTotal()+" pts"))),
+   el("div",{style:"margin-top:20px;display:flex;gap:10px;flex-wrap:wrap"},
+    nx?el("button",{class:"btn",on:{click:()=>go("mod",nx.id)}},"Continuar"):el("button",{class:"btn",on:{click:()=>go("cert")}},"Ir al examen"),
+    el("button",{class:"btn ghost",style:"color:#fff;border-color:#4a5163",on:{click:()=>{L().lv=null;S.ob={i:0,pts:[],fo:null};S.view="onboard";render()}}},"Cambiar nivel o foco"))),
+  blitzCard());
+ m.appendChild(hero);
+ m.appendChild(el("div",{class:"sec-h"},el("h2",null,"Tu ruta de entrenamiento"),el("span",{class:"muted"},LEVELS[l.lv||0].c)));
+ const ord=modOrder().map(x=>x.id);
+ const bs=BUNDLES.slice().sort((a,b)=>Math.min(...a.mods.map(i=>ord.indexOf(i)))-Math.min(...b.mods.map(i=>ord.indexOf(i))));
+ bs.forEach((b,bi)=>{
+  const mods=b.mods.map(modOf).sort((a,c)=>ord.indexOf(a.id)-ord.indexOf(c.id));
+  const done=mods.every(modPassed);
+  m.appendChild(el("section",{class:"bundle"+(done?" done":"")},
+   el("div",{class:"bundle-h"},el("span",{class:"bn"},done?"✓":bi+1),el("div",{style:"flex:1;min-width:200px"},el("h3",null,"Bundle "+(bi+1)+": "+b.n),el("p",{class:"muted",style:"font-size:13px"},b.d)),
+    el("span",{class:"pill"},"Jugadas: "+b.cats.map(c=>CATN[c]).join(", "))),
+   el("div",{class:"grid g2"},mods.map(mo=>modCard(mo,nx&&nx.id===mo.id)))))});
+ m.appendChild(el("div",{class:"sec-h"},el("h2",null,"Cierra con certificado"),el("button",{class:"btn ghost sm",on:{click:()=>go("cert")}},"Ver requisitos")));
+ m.appendChild(el("div",{class:"panel"},el("p",null,"Para certificarte necesitas: los 7 quizzes aprobados, el examen final con 80% o más y al menos "+(S.cfg.blitz.min||3)+" misiones BLITZ entregadas.")));
+ m.appendChild(backupPanel())}
+function backupPanel(){
+ const f=el("input",{type:"file",accept:"application/json,.json",hidden:true});
+ f.addEventListener("change",async()=>{const fl=f.files[0];if(!fl)return;
+  try{const j=JSON.parse(await fl.text());if(!j||j.app!=="mla"||!j.L||typeof j.L!=="object")throw 0;
+   S.L=Object.assign(newL(),mergeL(L(),j.L));S.L.em=S.email||S.L.em;save();toast("Copia restaurada y unida a tu avance.");render()}
+  catch(e){toast("Ese archivo no es una copia de la Academia.")}});
+ return el("section",{class:"panel",style:"margin-top:24px"},el("span",{class:"kick"},"Tu avance"),
+  el("p",{style:"margin:6px 0 12px"},S.sync==="ok"?"Tu avance se guarda solo en la nube cada vez que completas algo.":"Tu avance se guarda en este navegador. Descarga una copia por si cambias de equipo."),
+  el("div",{class:"row",style:"gap:8px"},
+   el("button",{class:"btn ghost sm",on:{click:async()=>{
+    try{const d=await claude.use("downloads");if(!d)throw 0;await d.save({filename:"mi-avance-academia-marketlogic.json",data:JSON.stringify({app:"mla",v:1,ts:Date.now(),L:L()})});toast("Copia guardada.")}
+    catch(e){if(e&&e.code==="declined")return;toast("No se pudo abrir la descarga.")}}}},"Descargar copia"),
+   el("button",{class:"btn ghost sm",on:{click:()=>f.click()}},"Restaurar copia"),
+   el("button",{class:"btn ghost sm",on:{click:()=>{flush();toast("Sincronizando...")}}},"Guardar ahora"),f))}
+function modCard(mo,rec){
+ const d=modPassed(mo),ld=modLessonsDone(mo),q=L().qz[mo.id];
+ const ms=MISSIONS.filter(x=>x.m===mo.id&&L().ms[x.id]).length;
+ return el("button",{class:"mod"+(d?" done":rec?" rec":""),on:{click:()=>go("mod",mo.id)},"aria-label":"Módulo "+mo.id+": "+mo.t},
+  el("span",{class:"mn"},"MÓDULO "+mo.id+(rec?" · EMPIEZA AQUÍ":"")),
+  el("h4",null,mo.t),el("p",null,mo.p),
+  el("div",{class:"mini"},el("i",{style:"width:"+pct(ld+(d?1:0),mo.lessons.length+1)+"%"})),
+  el("div",{class:"meta"},
+   el("span",{class:"pill"},ld+"/"+mo.lessons.length+" lecciones"),
+   q?el("span",{class:"pill "+(q.pass?"ok":"")},"Quiz "+q.best+"/"+mo.q.length):el("span",{class:"pill"},"Quiz"),
+   ms?el("span",{class:"pill dk"},ms+" misión"+(ms>1?"es":"")):null,
+   el("span",{class:"pill"},mo.min+" min")))}
+
+/* ===== Módulo: lecciones animadas, quiz y misiones ===== */
+function viewModule(m){
+ const mo=modOf(S.modId);m.replaceChildren();
+ if(!S.sub){const nl=mo.lessons.find(l=>!lessonDone(l.id));S.sub=nl?"l:"+nl.id:(modPassed(mo)?"m":"q")}
+ const d=modPassed(mo);
+ m.appendChild(el("div",{class:"crumb"},el("button",{on:{click:()=>go("ruta")}},"Mi ruta"),"/",el("span",null,"Módulo "+mo.id)));
+ m.appendChild(el("div",{class:"mod-h"},el("div",null,el("span",{class:"kick"},"Módulo "+mo.id+" · Sesión "+mo.id+" · "+mo.min+" min"),el("h1",null,mo.t),el("p",{class:"muted"},mo.p)),
+  el("div",{class:"row"},el("span",{class:"pill "+(d?"ok":"")},d?"Módulo completo":"En curso"),el("span",{class:"pill"},bundleOf(mo).n))));
+ const side=el("nav",{class:"chap","aria-label":"Capítulos"});
+ mo.lessons.forEach((l,i)=>side.appendChild(el("button",{class:lessonDone(l.id)?"done":"","aria-current":S.sub==="l:"+l.id?"true":null,on:{click:()=>{clearTimeout(timer);S.sub="l:"+l.id;S.sc=0;S.qz=null;render()}}},
+  el("span",{class:"ck"},lessonDone(l.id)?"✓":i+1),el("span",null,el("b",{style:"font-family:var(--fh);font-size:13px"},"Capítulo "+(i+1)),el("br"),el("span",{class:"muted",style:"font-size:13px"},l.t)))));
+ const open=quizOpen(mo);
+ side.appendChild(el("button",{class:d?"done":"","aria-current":S.sub==="q"?"true":null,disabled:!open,on:{click:()=>{S.sub="q";S.qz=null;render()}}},
+  el("span",{class:"ck"},d?"✓":"?"),el("span",null,el("b",{style:"font-family:var(--fh);font-size:13px"},"Quiz del módulo"),el("br"),el("span",{class:"muted",style:"font-size:13px"},open?"6 preguntas · aprueba con "+Math.ceil(mo.q.length*PASS):"Termina los capítulos para abrirlo"))));
+ const ms=MISSIONS.filter(x=>x.m===mo.id);
+ side.appendChild(el("button",{"aria-current":S.sub==="m"?"true":null,on:{click:()=>{S.sub="m";render()}}},
+  el("span",{class:"ck"},"★"),el("span",null,el("b",{style:"font-family:var(--fh);font-size:13px"},"Misiones BLITZ"),el("br"),el("span",{class:"muted",style:"font-size:13px"},ms.length+" misiones ligadas al Play Deck"))));
+ const main=el("div",null);
+ if(S.sub&&S.sub[0]==="l")lessonStage(main,mo,mo.lessons.find(l=>l.id===S.sub.slice(2)));
+ else if(S.sub==="q")quizView(main,mo);
+ else missionList(main,ms,true);
+ m.appendChild(el("div",{class:"lay"},side,main))}
+function bundleOf(mo){return BUNDLES.find(b=>b.id===mo.b)}
+
+function ytId(u){const m=String(u||"").match(/(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/))([A-Za-z0-9_-]{11})/);return m?m[1]:""}
+function vidKind(u){return ytId(u)?"y":/\.(mp4|webm)(\?|#|$)/i.test(u||"")?"a":"l"}
+function videoBlock(les){
+ const v=S.cfg.videos[keyOf(les.id)];
+ if(!v||!v.u)return el("div",{class:"vid"},el("span",{class:"pill"},"Video"),el("span",{class:"muted",style:"font-size:13px"},"El video de este capítulo lo carga el equipo de Marketing. Mientras tanto, mira la lección animada."));
+ if(v.k==="a"||(v.k==="l"&&/\.(mp4|webm)(\?|#|$)/i.test(v.u))){
+  const vd=el("video",{controls:true,preload:"metadata",playsinline:true,src:v.u});
+  const box=el("div",{class:"vid",style:"display:block"},vd);
+  vd.addEventListener("error",()=>{box.replaceChildren(el("a",{class:"btn sm",href:v.u,target:"_blank",rel:"noopener"},"Abrir video"))});
+  return box}
+ const yt=ytId(v.u);
+ if(yt&&window.claude&&window.claude.__pwa)return el("div",{class:"vid",style:"display:block"},el("div",{class:"ytw"},el("iframe",{src:"https://www.youtube-nocookie.com/embed/"+yt+"?rel=0&modestbranding=1",title:"Video del capítulo "+les.id,allow:"accelerometer; encrypted-media; picture-in-picture; fullscreen",allowfullscreen:true,loading:"lazy",referrerpolicy:"strict-origin-when-cross-origin"})),el("a",{class:"lnk",style:"display:inline-block;margin-top:8px;font-size:13px",href:v.u,target:"_blank",rel:"noopener"},"Abrir en YouTube"));
+ return el("div",{class:"vid"},el("span",{class:"pill or"},"Video"),el("a",{class:"btn sm",href:v.u,target:"_blank",rel:"noopener"},"Ver video del capítulo"),el("span",{class:"muted",style:"font-size:13px"},"Se abre en otra pestaña."))}
+
+function lessonStage(host,mo,les){
+ const sc=les.sc,i=Math.min(S.sc,sc.length-1),s=sc[i],dur=reduce()?0:9;
+ const st=el("div",{class:"stage"});
+ st.appendChild(el("div",{class:"stage-top"},el("span",{class:"t"},"Capítulo "+les.id+" · "+les.t),el("span",{class:"t"},(i+1)+" / "+sc.length)));
+ const seg=el("div",{class:"seg"+(S.play&&dur&&!lessonLast(i,sc)?" play":""),style:"--dur:"+dur+"s"});
+ sc.forEach((_,j)=>seg.appendChild(el("i",{class:j<i?"on":j===i?"cur on":""},j===i?el("b"):null)));
+ st.appendChild(seg);
+ const sceneEl=el("div",{class:"scene"+(s.s?" wide":""),"aria-live":"polite"});
+ if(s.s)sceneEl.appendChild(el("div",{class:"big"},s.s));
+ sceneEl.appendChild(el("div",null,el("span",{class:"kick k"},s.k),el("h2",{style:"margin:8px 0 10px"},s.h),el("p",null,s.b)));
+ st.appendChild(sceneEl);
+ const prev=el("button",{class:"btn ghost sm",disabled:i===0,on:{click:()=>{S.sc=i-1;render()}}},"Anterior");
+ const last=lessonLast(i,sc);
+ const next=last?el("button",{class:"btn sm",on:{click:()=>finishLesson(mo,les)}},lessonDone(les.id)?"Lección completa":"Terminar capítulo"):el("button",{class:"btn sm",on:{click:()=>{S.sc=i+1;render()}}},"Siguiente");
+ const pl=el("button",{class:"btn ghost sm","aria-pressed":S.play?"true":"false",on:{click:()=>{S.play=!S.play;render()}}},S.play&&dur?"Pausar":"Reproducir");
+ st.appendChild(el("div",{class:"stage-bot"},el("div",{class:"row",style:"gap:8px"},prev,pl),next));
+ host.appendChild(st);
+ host.appendChild(videoBlock(les));
+ const idx=mo.lessons.indexOf(les);
+ host.appendChild(el("p",{class:"muted",style:"margin-top:14px;font-size:13px"},"Tarea de la sesión: "+mo.tarea.join(" ")));
+ if(S.play&&dur&&!last)timer=setTimeout(()=>{S.sc=i+1;render()},dur*1000)}
+const lessonLast=(i,sc)=>i>=sc.length-1;
+function finishLesson(mo,les){
+ const first=!lessonDone(les.id);
+ if(first){L().les[les.id]=Date.now();addXp(10);save()}
+ const idx=mo.lessons.indexOf(les);
+ clearTimeout(timer);
+ if(idx<mo.lessons.length-1){S.sub="l:"+mo.lessons[idx+1].id;S.sc=0;if(first)toast("+10 pts. Capítulo completo.")}
+ else{S.sub="q";S.qz=null;toast(first?"+10 pts. Ya puedes tomar el quiz.":"Quiz del módulo")}
+ render();window.scrollTo(0,0)}
+
+/* ---------- quiz ---------- */
+function mkQuiz(qs){return{items:qs.map(q=>({q,ord:shuffle(q.o.map((_,i)=>i)),pick:null})),i:0,done:false}}
+function quizView(host,mo){
+ if(!quizOpen(mo)){host.appendChild(el("div",{class:"panel"},"Termina los 3 capítulos para abrir el quiz."));return}
+ if(!S.qz||S.qz.mod!==mo.id){S.qz=mkQuiz(mo.q);S.qz.mod=mo.id}
+ const z=S.qz;
+ if(z.done)return quizResult(host,mo,z);
+ const it=z.items[z.i],q=it.q,n=z.items.length;
+ const card=el("div",{class:"card"});
+ card.appendChild(el("div",{class:"steps"},z.items.map((x,j)=>el("i",{class:x.pick==null?(j===z.i?"on":""):(x.ord[x.pick]===x.q.a?"ok":"ko")}))));
+ card.appendChild(el("span",{class:"kick"},"Pregunta "+(z.i+1)+" de "+n));
+ card.appendChild(el("h2",{style:"font-size:clamp(20px,3vw,26px);font-weight:800;margin:8px 0 6px"},q.q));
+ it.ord.forEach((oi,k)=>{
+  let cls="qopt";
+  if(it.pick!=null){if(oi===q.a)cls+=" ok";else if(k===it.pick)cls+=" ko"}
+  card.appendChild(el("button",{class:cls,disabled:it.pick!=null,on:{click:()=>{it.pick=k;render()}}},el("span",{class:"k"},"ABCD"[k]),el("span",null,q.o[oi])))});
+ if(it.pick!=null){
+  const right=it.ord[it.pick]===q.a;
+  card.appendChild(el("div",{class:"panel",style:"margin-top:14px","aria-live":"polite"},el("b",{style:"font-family:var(--fh)"},right?"Correcto. ":"No exactamente. "),q.e));
+  card.appendChild(el("div",{style:"margin-top:14px"},el("button",{class:"btn",on:{click:()=>{if(z.i<n-1)z.i++;else{z.done=true;gradeQuiz(mo,z)}render()}}},z.i<n-1?"Siguiente":"Ver resultado")))}
+ host.appendChild(card)}
+function gradeQuiz(mo,z){
+ const sc=z.items.filter(x=>x.ord[x.pick]===x.q.a).length,need=Math.ceil(mo.q.length*PASS),pass=sc>=need;
+ const prev=L().qz[mo.id],first=!(prev&&prev.pass);
+ L().qz[mo.id]={best:Math.max(sc,prev?prev.best:0),pass:pass||(prev&&prev.pass)||false,ts:Date.now(),tries:(prev?prev.tries:0)+1};
+ if(pass&&first){addXp(30);toast("+30 pts. Módulo completo.")}
+ z.sc=sc;z.pass=pass;save()}
+function quizResult(host,mo,z){
+ const need=Math.ceil(mo.q.length*PASS);
+ const nx=nextMod();
+ host.appendChild(el("div",{class:"card"},
+  el("span",{class:"kick"},z.pass?"Aprobado":"Casi"),
+  el("h2",{style:"font-size:clamp(24px,4vw,34px);font-weight:900;margin:6px 0"},z.sc+" de "+z.items.length+" correctas"),
+  el("p",{class:"muted"},z.pass?"Desbloqueaste las misiones BLITZ de este módulo.":"Necesitas "+need+" para aprobar. Repasa los capítulos y vuelve a intentarlo."),
+  el("div",{style:"margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"},
+   z.pass?el("button",{class:"btn",on:{click:()=>{S.sub="m";render()}}},"Ir a las misiones"):null,
+   z.pass&&nx&&nx.id!==mo.id?el("button",{class:"btn ghost",on:{click:()=>go("mod",nx.id)}},"Siguiente módulo"):null,
+   el("button",{class:"btn ghost",on:{click:()=>{S.qz=null;render()}}},"Repetir quiz"))))}
+
+/* ---------- misiones ---------- */
+function relevant(x){const f=L().fo||"a";return f==="a"||x.f==="a"||x.f===f}
+function missionCard(x){
+ const mo=modOf(x.m),unlocked=modPassed(mo),sub=L().ms[x.id],val=S.vals&&S.vals[x.id];
+ const cls="mis"+(sub?" done":!unlocked?" lock":"");
+ const c=el("article",{class:cls});
+ c.appendChild(el("div",{class:"row",style:"gap:8px;justify-content:space-between"},
+  el("span",{class:"kick"},"Módulo "+x.m+" · "+(x.f==="n"?"Cuentas nuevas":x.f==="b"?"Clientes actuales":"Ambos")),
+  el("span",{class:"row",style:"gap:6px"},el("span",{class:"pill"},"Nivel "+LEV[x.lv-1]),el("span",{class:"pill or"},x.xp+" pts"))));
+ c.appendChild(el("h4",null,x.t));
+ c.appendChild(el("p",{style:"color:var(--body)"},x.d));
+ c.appendChild(el("div",{class:"cardchips","aria-label":"Jugadas del Play Deck"},x.cards.map(n=>{const cd=cardOf(n);return el("span",{class:"cc",title:cd?cd.t:""},el("b",null,String(n).padStart(2,"0")),cd?cd.t:"")})));
+ if(sub){
+  c.appendChild(el("div",{class:"row",style:"gap:8px"},el("span",{class:"pill ok"},val?"Validada por el equipo":"Entregada "+fmtD(sub.ts)),sub.n?el("span",{class:"pill"},sub.n+" realizadas"):null,
+   el("button",{class:"lnk",on:{click:()=>{S.open=S.open===x.id?null:x.id;render()}}},S.open===x.id?"Cerrar":"Editar entrega")));
+  c.appendChild(el("p",{class:"muted",style:"font-size:13px"},"“"+sub.ev+"”"))}
+ if(!sub&&!unlocked){c.appendChild(el("p",{style:"font-size:13px"},"Aprueba el quiz del módulo "+x.m+" para desbloquear."));c.appendChild(el("button",{class:"btn ghost sm",on:{click:()=>go("mod",x.m,"q")}},"Ir al módulo"));return c}
+ if(!sub||S.open===x.id){
+  if(S.open!==x.id&&!sub){c.appendChild(el("div",{class:"row",style:"gap:8px"},el("button",{class:"btn sm",on:{click:()=>{S.open=x.id;render()}}},"Entregar misión"),el("a",{class:"btn ghost sm",href:S.cfg.blitz.play||PLAY_URL,target:"_blank",rel:"noopener"},"Abrir Play Deck")));return c}
+  const ev=el("textarea",{class:"txa",placeholder:x.ev+" (mínimo 10 caracteres)",id:"ev-"+x.id});ev.value=sub?sub.ev:"";
+  const nn=x.goal?el("input",{class:"inp",type:"number",min:"0",max:"999",value:sub&&sub.n!=null?sub.n:x.goal,"aria-label":"Cuántas realizaste",style:"max-width:140px"}):null;
+  const er=el("div",{class:"err",role:"alert"});
+  c.appendChild(el("div",{class:"fld"},el("label",{for:"ev-"+x.id},"Evidencia: "+x.ev),ev));
+  if(nn)c.appendChild(el("div",{class:"fld"},el("label",null,"¿Cuántas realizaste? (meta "+x.goal+")"),nn));
+  c.appendChild(er);
+  c.appendChild(el("div",{class:"row",style:"gap:8px"},el("button",{class:"btn sm",on:{click:()=>{
+   const t=ev.value.trim();if(t.length<10){er.textContent="Cuéntanos un poco más (mínimo 10 caracteres).";return}
+   const first=!L().ms[x.id];L().ms[x.id]={ts:Date.now(),ev:t.slice(0,600),n:nn?Math.max(0,Math.min(999,+nn.value||0)):null};
+   if(first)addXp(x.xp);S.open=null;save();toast(first?"+"+x.xp+" pts. Misión entregada.":"Entrega actualizada.");render()}}},"Enviar"),
+   el("button",{class:"btn ghost sm",on:{click:()=>{S.open=null;render()}}},"Cancelar")))}
+ return c}
+function missionList(host,list,inModule){
+ const l=list.slice().sort((a,b)=>(!!L().ms[a.id])-(!!L().ms[b.id])||(relevant(b)-relevant(a))||(a.lv-b.lv));
+ host.appendChild(el("div",{class:"grid"},l.map(missionCard)));
+ if(inModule&&!l.length)host.appendChild(el("div",{class:"panel"},"Sin misiones."))}
+function viewMissions(m){
+ m.replaceChildren();
+ m.appendChild(el("div",{class:"hero",style:"grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)"},
+  el("div",{class:"hero-l"},el("span",{class:"kick"},"Del aprendizaje a la acción"),el("h1",null,"Misiones "+(S.cfg.blitz.name||"BLITZ")),el("p",null,"Cada misión se ancla a jugadas del Play Deck. Aprueba el quiz del módulo, ejecuta en cuentas reales y entrega tu evidencia."),
+   el("div",{style:"margin-top:18px"},el("a",{class:"btn",href:S.cfg.blitz.play||PLAY_URL,target:"_blank",rel:"noopener"},"Abrir el Sales Play Deck"))),
+  blitzCard()));
+ const all=MISSIONS.filter(relevant),done=all.filter(x=>L().ms[x.id]).length;
+ m.appendChild(el("div",{class:"sec-h"},el("h2",null,"Tus misiones"),el("div",{class:"row",style:"gap:8px"},
+  [["all","Todas"],["mine","Para mi nivel"],["open","Pendientes"],["done","Entregadas"]].map(([k,n])=>el("button",{class:"btn sm "+(S.mf===k?"":"ghost"),"aria-pressed":S.mf===k?"true":"false",on:{click:()=>{S.mf=k;render()}}},n)),
+  el("span",{class:"pill ok"},done+" de "+all.length+" entregadas"))));
+ let list=all;
+ if(S.mf==="mine")list=all.filter(x=>x.lv<=L().lv+1);
+ if(S.mf==="open")list=all.filter(x=>!L().ms[x.id]);
+ if(S.mf==="done")list=all.filter(x=>L().ms[x.id]);
+ const g=el("div",{class:"grid g2"});
+ list.slice().sort((a,b)=>(!!L().ms[a.id])-(!!L().ms[b.id])||a.m-b.m||a.lv-b.lv).forEach(x=>g.appendChild(missionCard(x)));
+ m.appendChild(g);
+ if(!list.length)m.appendChild(el("div",{class:"panel"},"No hay misiones en este filtro."))}
+
+/* ===== Examen, certificado y panel de equipo ===== */
+const EXAM_N=15;
+function mkExam(){
+ let pick=[];
+ MODS.forEach(m=>{pick=pick.concat(shuffle(EXAM.filter(e=>e.m===m.id)).slice(0,2))});
+ const rest=shuffle(EXAM.filter(e=>pick.indexOf(e)<0));
+ pick.push(rest[0]);
+ return{items:shuffle(pick).map(q=>({q,ord:shuffle(q.o.map((_,i)=>i)),pick:null})),i:0,done:false}}
+function certReqs(){
+ const l=L(),min=S.cfg.blitz.min||3;
+ return[
+  {ok:modsDone()===MODS.length,t:"Aprobar los 7 quizzes de módulo",d:modsDone()+" de "+MODS.length},
+  {ok:l.ex.best>=PASS*100,t:"Aprobar el examen final con 80% o más",d:l.ex.best?"Mejor resultado: "+l.ex.best+"%":"Sin intentos"},
+  {ok:missDone()>=min,t:"Entregar al menos "+min+" misiones BLITZ",d:missDone()+" entregadas"}]}
+function viewCert(m){
+ m.replaceChildren();
+ const rq=certReqs(),allm=rq[0].ok;
+ m.appendChild(el("div",{class:"crumb"},el("span",null,"Cierre del programa")));
+ m.appendChild(el("h1",{style:"font-size:clamp(26px,4vw,38px);font-weight:900;margin-bottom:6px"},"Examen final y certificado"));
+ m.appendChild(el("p",{class:"muted",style:"margin-bottom:18px"},"Tres requisitos. Cuando los cumplas, generas tu certificado."));
+ const li=rq.map(r=>el("li",{class:r.ok?"ok":""},el("span",{class:"dot"},r.ok?"✓":""),el("span",null,el("b",null,r.t),el("span",{class:"muted"}," · "+r.d))));
+ m.appendChild(el("div",{class:"card"},el("ul",{class:"reqs",style:"padding:0;margin:0"},li)));
+ m.appendChild(el("div",{style:"height:16px"}));
+ if(S.ex&&!S.ex.done)return examView(m);
+ if(S.ex&&S.ex.done)return examResult(m);
+ const l=L();
+ m.appendChild(el("div",{class:"card"},el("span",{class:"kick"},"Examen final"),el("h3",{style:"font-size:20px;margin:6px 0"},EXAM_N+" escenarios de venta"),
+  el("p",{class:"muted"},allm?"Se arma con preguntas de los 7 módulos. Necesitas "+Math.ceil(EXAM_N*PASS)+" para aprobar. Puedes repetirlo.":"Se abre cuando apruebes los 7 quizzes de módulo."),
+  el("div",{style:"margin-top:14px"},el("button",{class:"btn",disabled:!allm,on:{click:()=>{S.ex=mkExam();render()}}},l.ex.tries?"Repetir examen":"Empezar examen")))); 
+ m.appendChild(el("div",{style:"height:16px"}));
+ certBlock(m)}
+function examView(m){
+ const z=S.ex,it=z.items[z.i],q=it.q,n=z.items.length;
+ const card=el("div",{class:"card"});
+ card.appendChild(el("div",{class:"steps"},z.items.map((x,j)=>el("i",{class:x.pick!=null?"ok":j===z.i?"on":""}))));
+ card.appendChild(el("span",{class:"kick"},"Examen · "+(z.i+1)+" de "+n+" · Módulo "+q.m));
+ card.appendChild(el("h2",{style:"font-size:clamp(20px,3vw,26px);font-weight:800;margin:8px 0 6px"},q.q));
+ it.ord.forEach((oi,k)=>card.appendChild(el("button",{class:"qopt"+(it.pick===k?" sel":""),on:{click:()=>{it.pick=k;render()}}},el("span",{class:"k"},"ABCD"[k]),el("span",null,q.o[oi]))));
+ card.appendChild(el("div",{style:"margin-top:14px;display:flex;gap:10px;flex-wrap:wrap"},
+  z.i>0?el("button",{class:"btn ghost",on:{click:()=>{z.i--;render()}}},"Anterior"):null,
+  el("button",{class:"btn",disabled:it.pick==null,on:{click:()=>{if(z.i<n-1)z.i++;else{z.done=true;gradeExam(z)}render()}}},z.i<n-1?"Siguiente":"Terminar examen"),
+  el("button",{class:"lnk",on:{click:()=>{S.ex=null;render()}}},"Salir sin calificar")));
+ m.appendChild(card)}
+function gradeExam(z){
+ const sc=z.items.filter(x=>x.ord[x.pick]===x.q.a).length,p=Math.round(sc*100/z.items.length),l=L();
+ const was=l.ex.best>=PASS*100;
+ l.ex={best:Math.max(l.ex.best,p),tries:l.ex.tries+1,ts:Date.now()};
+ z.sc=sc;z.p=p;
+ if(p>=PASS*100&&!was){addXp(100);toast("+100 pts. Examen aprobado.")}
+ save()}
+function examResult(m){
+ const z=S.ex,pass=z.p>=PASS*100;
+ const wrong=z.items.filter(x=>x.ord[x.pick]!==x.q.a);
+ m.appendChild(el("div",{class:"card"},el("span",{class:"kick"},pass?"Aprobado":"Casi"),
+  el("h2",{style:"font-size:clamp(28px,5vw,44px);font-weight:900;margin:6px 0"},z.p+"%"),
+  el("p",{class:"muted"},z.sc+" de "+z.items.length+" correctas. "+(pass?"Ya cumples el requisito del examen.":"Necesitas "+Math.ceil(z.items.length*PASS)+" para aprobar.")),
+  wrong.length?el("div",{style:"margin-top:14px"},el("b",{style:"font-family:var(--fh)"},"Para repasar"),wrong.map(x=>el("div",{class:"panel",style:"margin-top:10px"},el("b",null,x.q.q),el("br"),el("span",null,"Respuesta: "+x.q.o[x.q.a]+". "+x.q.e),el("br"),el("button",{class:"lnk",on:{click:()=>{S.ex=null;go("mod",x.q.m)}}},"Repasar módulo "+x.q.m)))):null,
+  el("div",{style:"margin-top:16px;display:flex;gap:10px;flex-wrap:wrap"},el("button",{class:"btn",on:{click:()=>{S.ex=null;render()}}},pass?"Continuar":"Volver"),!pass?el("button",{class:"btn ghost",on:{click:()=>{S.ex=mkExam();render()}}},"Repetir examen"):null)))}
+
+/* ---------- certificado ---------- */
+function codeFor(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)>>>0}return"MLA-"+h.toString(36).toUpperCase().padStart(7,"0").slice(0,7)}
+function loadImg(src){return new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=rej;setTimeout(()=>rej(new Error("img")),4000);i.src=src})}
+async function drawCert(c){
+ try{await Promise.all([document.fonts.load("900 80px Montserrat"),document.fonts.load("700 30px Montserrat"),document.fonts.load("400 28px 'Open Sans'")])}catch(e){}
+ const W=1600,H=1130,cv=document.createElement("canvas");cv.width=W;cv.height=H;const g=cv.getContext("2d");
+ g.fillStyle="#fff";g.fillRect(0,0,W,H);
+ g.fillStyle="#171B26";g.fillRect(0,0,W,230);
+ try{const im=await loadImg(LOGO_URI);const h=74,w=h*im.width/im.height;g.drawImage(im,100,78,w,h)}catch(e){}
+ g.textBaseline="alphabetic";g.textAlign="right";g.fillStyle="#CCD6DF";g.font="700 26px Montserrat, Arial, sans-serif";
+ g.fillText("SALES LEARNING PATH",W-100,135);
+ g.fillStyle="#FF5B09";g.fillRect(0,230,W,16);
+ g.textAlign="center";
+ g.fillStyle="#FF5B09";g.font="800 30px Montserrat, Arial, sans-serif";g.fillText("CERTIFICADO DE FINALIZACIÓN",W/2,345);
+ g.fillStyle="#6B7280";g.font="400 30px 'Open Sans', Arial, sans-serif";g.fillText("MarketLogic Digital certifica que",W/2,420);
+ let fs=104;g.fillStyle="#171B26";
+ do{g.font="900 "+fs+"px Montserrat, Arial, sans-serif";fs-=4}while(g.measureText(c.nm).width>1300&&fs>40);
+ g.fillText(c.nm,W/2,550);
+ g.fillStyle="#FF5B09";g.fillRect(W/2-90,590,180,8);
+ g.fillStyle="#171B26";g.font="400 32px 'Open Sans', Arial, sans-serif";
+ const lines=["completó los 7 módulos del Digital Sales Learning Path,","aprobó el examen final con "+c.p+"% y entregó "+c.ms+" misiones "+(c.bl||"BLITZ")+"","aplicando lo aprendido con las jugadas del Sales Play Deck."];
+ lines.forEach((t,i)=>g.fillText(t,W/2,670+i*50));
+ g.fillStyle="#F5F5F5";g.fillRect(100,880,W-200,150);
+ g.textAlign="left";g.fillStyle="#6B7280";g.font="700 20px Montserrat, Arial, sans-serif";
+ g.fillText("FECHA",150,930);g.fillText("CÓDIGO",600,930);g.fillText("PROGRAMA",1000,930);
+ g.fillStyle="#171B26";g.font="800 32px Montserrat, Arial, sans-serif";
+ g.fillText(new Date(c.ts).toLocaleDateString("es",{day:"numeric",month:"long",year:"numeric"}),150,985);
+ g.fillText(c.code,600,985);g.font="800 28px Montserrat, Arial, sans-serif";g.fillText("7 sesiones · 21 capítulos",1000,985);
+ g.fillStyle="#FF5B09";g.fillRect(0,H-16,W,16);
+ return cv}
+function certBlock(m){
+ const rq=certReqs(),all=rq.every(r=>r.ok),l=L();
+ const wrap=el("div",{class:"card"});
+ wrap.appendChild(el("span",{class:"kick"},"Certificado"));
+ if(!all){wrap.appendChild(el("h3",{style:"font-size:20px;margin:6px 0"},"Aún no está disponible"));wrap.appendChild(el("p",{class:"muted"},"Cumple los tres requisitos de arriba para generarlo."));m.appendChild(wrap);return}
+ const dflt=l.cert?l.cert.nm:(S.name||S.hsName||nameFromEmail(S.email));
+ wrap.appendChild(el("h3",{style:"font-size:20px;margin:6px 0"},l.cert?"Tu certificado":"Genera tu certificado"));
+ const inp=el("input",{class:"inp",id:"cNm",maxlength:"60",value:dflt,"aria-label":"Nombre en el certificado"});
+ wrap.appendChild(el("div",{class:"fld"},el("label",{for:"cNm"},"Nombre que aparecerá"),inp));
+ const prev=el("div",{style:"margin-top:16px"});
+ const dl=el("button",{class:"btn ghost",hidden:true},"Descargar PNG");
+ const mk=async()=>{
+  const nm=inp.value.trim()||dflt;
+  const ts=l.cert?l.cert.ts:Date.now();
+  const c={nm,ts,p:l.ex.best,ms:missDone(),bl:S.cfg.blitz.name||"BLITZ",code:l.cert?l.cert.code:codeFor(S.uid+"|"+ts+"|"+nm)};
+  const cv=await drawCert(c);
+  l.cert={nm,ts,code:c.code,p:c.p,ms:c.ms};save();
+  const url=cv.toDataURL("image/png");
+  prev.replaceChildren(el("img",{class:"certimg",src:url,alt:"Certificado de "+nm}));
+  dl.hidden=false;dl.onclick=async()=>{
+   try{const dls=await claude.use("downloads");if(!dls)throw 0;const b=await new Promise(r=>cv.toBlob(r,"image/png"));
+    await dls.save({filename:"certificado-academia-marketlogic.png",data:b});toast("Certificado guardado.")}
+   catch(e){if(e&&e.code==="declined")return;toast("No se pudo abrir la descarga. Mantén presionada la imagen para guardarla.")}};
+  if(!l.cert.shown){l.cert.shown=1;toast("Certificado listo. Código "+c.code)}};
+ wrap.appendChild(el("div",{class:"row",style:"margin-top:14px;gap:10px"},el("button",{class:"btn",on:{click:mk}},l.cert?"Actualizar certificado":"Generar certificado"),dl));
+ wrap.appendChild(prev);m.appendChild(wrap);
+ if(l.cert)mk()}
+function nameFromEmail(e){return(e||"").split("@")[0].split(/[._-]+/).filter(Boolean).map(s=>s[0].toUpperCase()+s.slice(1)).join(" ")||"Participante"}
+
+/* ===== Panel de equipo (editores) ===== */
+async function loadTeam(){
+ S.team={rows:[],vals:{},loading:true};render();
+ try{
+  const sn=await S.db.collection("learners").get();
+  S.team.rows=sn.docs.map(d=>Object.assign({id:d.id},d.data()));
+  const vs=await S.db.collection("vals").get();vs.docs.forEach(d=>{S.team.vals[d.id]=d.data()});
+  S.team.acc={};S.team.req=[];
+  try{const ac=await S.db.collection("access").get();ac.docs.forEach(d=>{S.team.acc[d.id]=d.data()})}catch(e){}
+  try{const rq=await S.db.collection("requests").get();S.team.req=rq.docs.map(d=>Object.assign({id:d.id},d.data()))}catch(e){}
+  await resolveNames(S.team.rows.map(r=>r.id).concat(S.team.req.map(r=>r.id)));
+ }catch(e){S.team.err="No se pudo leer el equipo ("+((e&&e.code)||"error")+")."}
+ S.team.loading=false;render()}
+function rowStats(r){
+ const qz=r.qz||{},ms=r.ms||{},v=S.team.vals[r.id]||{};
+ return{md:Object.values(qz).filter(q=>q&&q.pass).length,ls:Object.keys(r.les||{}).length,ms:Object.keys(ms).length,vl:Object.keys(ms).filter(k=>v[k]).length,ex:(r.ex&&r.ex.best)||0}}
+function csvCell(v){let s=String(v==null?"":v);if(/^[=+\-@\t\r]/.test(s))s="'"+s;return/[",\n;]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
+async function exportCsv(){
+ const H=["Nombre","Correo","Correo verificado","Nivel","Foco","Modulos completos","Lecciones","Misiones entregadas","Misiones validadas","Mejor examen %","Certificado","Codigo","Puntos","Ultima actividad"];
+ const rows=S.team.rows.map(r=>{const s=rowStats(r);return[nameOf(r.id),r.em||"",VF[r.vf]||"sin verificar",r.lv==null?"":LEV[r.lv],r.fo?FOCUS[r.fo].n:"",s.md,s.ls,s.ms,s.vl,s.ex,r.cert?fmtD(r.cert.ts):"",r.cert?r.cert.code:"",r.xp||0,fmtD(r.t)]});
+ const csv="﻿"+[H].concat(rows).map(r=>r.map(csvCell).join(",")).join("\n");
+ try{const dls=await claude.use("downloads");if(!dls)throw 0;await dls.save({filename:"academia-equipo.csv",data:csv});toast("CSV guardado.")}
+ catch(e){if(e&&e.code==="declined")return;toast("No se pudo abrir la descarga del CSV.")}}
+async function validate(uid,mid){
+ try{const ref=S.db.doc("vals/"+uid);const sn=await ref.get();const cur=sn.exists?sn.data():{};cur[mid]=Date.now();await ref.set(cur);S.team.vals[uid]=cur;toast("Misión validada.");render()}
+ catch(e){toast("No se pudo validar.")}}
+function viewTeam(m){
+ m.replaceChildren();
+ if(!S.admin){m.appendChild(el("div",{class:"panel"},"Solo editores."));return}
+ if(!S.db||S.local){m.appendChild(el("div",{class:"banner"},"El panel necesita la base compartida. Abre la Academia desde el enlace publicado con tu cuenta de editor."));return}
+ if(!S.team){loadTeam();return}
+ m.appendChild(el("div",{class:"row",style:"justify-content:space-between;margin-bottom:14px"},el("h1",{style:"font-size:clamp(26px,4vw,38px);font-weight:900"},"Equipo"),
+  el("div",{class:"row",style:"gap:8px"},[["res","Resumen"],["acc","Accesos"+(S.team.req&&S.team.req.length?" ("+S.team.req.length+")":"")],["cfg","BLITZ"],["vid","Videos"]].map(([k,n])=>el("button",{class:"btn sm "+(S.tsub===k?"":"ghost"),on:{click:()=>{S.tsub=k;render()}}},n)),el("button",{class:"btn ghost sm",on:{click:loadTeam}},"Actualizar"))));
+ if(S.team.loading){m.appendChild(el("p",{class:"muted"},"Cargando equipo..."));return}
+ if(S.team.err)m.appendChild(el("div",{class:"banner"},S.team.err));
+ if(S.tsub==="acc")return teamAccess(m);
+ if(S.tsub==="cfg")return teamCfg(m);
+ if(S.tsub==="vid")return teamVideos(m);
+ const R=S.team.rows,st=R.map(rowStats);
+ const sum=k=>st.reduce((a,x)=>a+x[k],0);
+ m.appendChild(el("div",{class:"stats"},
+  [[R.length,"Personas"],[R.filter(r=>r.cert).length,"Certificados"],[sum("ms"),"Misiones entregadas"],[R.length?Math.round(R.reduce((a,r,i)=>a+st[i].md,0)*100/(R.length*MODS.length))+"%":"0%","Avance medio"]].map(([n,t])=>el("div",{class:"stat"},el("b",null,String(n)),el("span",null,t)))));
+ m.appendChild(el("div",{class:"sec-h"},el("h2",null,"Personas"),el("button",{class:"btn sm",on:{click:exportCsv}},"Exportar CSV")));
+ const rows=R.map((r,i)=>[r,st[i]]).sort((a,b)=>b[1].md-a[1].md||b[1].ms-a[1].ms);
+ m.appendChild(el("div",{class:"scrollx"},el("table",{class:"tbl"},el("thead",null,el("tr",null,["Persona","Nivel y foco","Módulos","Misiones","Examen","Cert.","Pts","Actividad"].map(h=>el("th",null,h)))),
+  el("tbody",null,rows.map(([r,s])=>el("tr",null,
+   el("td",null,el("b",null,nameOf(r.id)),el("br"),el("span",{class:"muted"},r.em||"sin correo"),el("span",{class:"pill"+(r.vf?"":" or"),style:"margin-left:6px"},VF[r.vf]||"sin verificar")),
+   el("td",null,r.lv==null?"-":LEV[r.lv],el("br"),el("span",{class:"muted"},r.fo?FOCUS[r.fo].n:"")),
+   el("td",null,s.md+"/"+MODS.length),el("td",null,s.ms+(s.vl?" ("+s.vl+" val.)":"")),el("td",null,s.ex?s.ex+"%":"-"),el("td",null,r.cert?r.cert.code:"-"),el("td",null,String(r.xp||0)),el("td",null,fmtD(r.t))))))));
+ if(!R.length)m.appendChild(el("p",{class:"muted",style:"margin-top:10px"},"Todavía nadie ha entrado."));
+ const q=[];R.forEach(r=>Object.keys(r.ms||{}).forEach(k=>{if(!((S.team.vals[r.id]||{})[k])){const x=MISSIONS.find(z=>z.id===k);if(x)q.push([r,x,r.ms[k]])}}));
+ q.sort((a,b)=>b[2].ts-a[2].ts);
+ m.appendChild(el("div",{class:"sec-h"},el("h2",null,"Por validar"),el("span",{class:"pill"},q.length+" pendientes")));
+ q.slice(0,40).forEach(([r,x,s])=>m.appendChild(el("div",{class:"mis",style:"margin-bottom:10px"},
+  el("div",{class:"row",style:"justify-content:space-between"},el("b",null,nameOf(r.id)+" · "+x.t),el("span",{class:"muted"},fmtD(s.ts))),
+  el("p",{style:"color:var(--body)"},"“"+s.ev+"”"+(s.n!=null?" ("+s.n+" realizadas)":"")),
+  el("div",null,el("button",{class:"btn sm",on:{click:()=>validate(r.id,x.id)}},"Validar")))));
+ if(!q.length)m.appendChild(el("p",{class:"muted"},"Todo validado."))}
+function teamCfg(m){
+ const b=S.cfg.blitz,f={};
+ const fld=(k,l,t,w)=>{const i=el(t==="area"?"textarea":"input",{class:t==="area"?"txa":"inp",type:t==="area"?null:t||"text",id:"c-"+k});i.value=b[k]==null?"":b[k];f[k]=i;return el("div",{class:"fld",style:w?"grid-column:span 2":""},el("label",{for:"c-"+k},l),i)};
+ m.appendChild(el("div",{class:"card"},el("span",{class:"kick"},"Campaña"),el("h3",{style:"font-size:20px;margin:6px 0 12px"},"Configura el BLITZ en ejecución"),
+  el("div",{class:"grid g2"},fld("name","Nombre"),fld("goal","Meta de misiones del equipo","number"),fld("start","Inicio (texto libre, ej. 2 nov)"),fld("end","Fin"),fld("min","Misiones mínimas para certificar","number"),fld("play","Enlace del Sales Play Deck","url"),fld("desc","Descripción","area",1)),
+  el("div",{style:"margin-top:14px"},el("button",{class:"btn",on:{click:async()=>{
+   const v={name:f.name.value.trim()||"BLITZ",desc:f.desc.value.trim(),start:f.start.value.trim(),end:f.end.value.trim(),goal:Math.max(1,+f.goal.value||50),min:Math.max(0,+f.min.value||3),play:f.play.value.trim()||PLAY_URL};
+   try{await S.db.doc("config/blitz").set(v);Object.assign(S.cfg.blitz,v);toast("BLITZ actualizado.")}catch(e){toast("No se pudo guardar.")}}}},"Guardar"))))}
+function teamVideos(m){
+ const pwa=!!(window.claude&&window.claude.__pwa);
+ m.appendChild(el("p",{class:"muted",style:"margin-bottom:12px"},pwa?"Pega el enlace de YouTube (video no listado) de cada capítulo. Se reproduce dentro de la Academia. También sirve un enlace directo a un archivo mp4.":"Pega el enlace de cada video (se abre en otra pestaña) o sube un clip corto de hasta 20 MB para reproducirlo dentro de la Academia."));
+ const g=el("div",{class:"grid"});
+ MODS.forEach(mo=>mo.lessons.forEach(l=>{
+  const k=keyOf(l.id),cur=S.cfg.videos[k]||{};
+  const inp=el("input",{class:"inp",type:"url",placeholder:"https://...","aria-label":"Enlace del video "+l.id});inp.value=cur.u||"";
+  const save1=async(u,kind)=>{const nv=Object.assign({},S.cfg.videos);if(u)nv[k]={u,k:kind};else delete nv[k];
+   try{await S.db.doc("config/videos").set(nv);S.cfg.videos=nv;toast("Video guardado.")}catch(e){toast("No se pudo guardar el video.")}};
+  const up=el("input",{type:"file",accept:"video/mp4,video/webm",hidden:true});
+  up.addEventListener("change",async()=>{const fl=up.files[0];if(!fl)return;
+   try{const as=await claude.use("assets");if(!as)throw 0;toast("Subiendo...");const r=await as.upload(fl);inp.value=r.url;await save1(r.url,"a");render()}catch(e){toast("No se pudo subir el clip (máx. 20 MB, mp4 o webm).")}});
+  g.appendChild(el("div",{class:"card"},el("div",{class:"row",style:"justify-content:space-between"},el("b",null,l.id+" · "+l.t),cur.u?el("span",{class:"pill ok"},cur.k==="a"?"Clip":cur.k==="y"?"YouTube":"Enlace"):el("span",{class:"pill"},"Sin video")),
+   el("div",{class:"row",style:"margin-top:10px;gap:8px"},el("div",{style:"flex:1;min-width:220px"},inp),el("button",{class:"btn sm",on:{click:()=>save1(inp.value.trim(),vidKind(inp.value.trim()))}},"Guardar enlace"),pwa?null:el("button",{class:"btn ghost sm",on:{click:()=>up.click()}},"Subir clip"),up)))}));
+ m.appendChild(g)}
+
+async function setAccess(uid,em,ok,from){
+ try{await S.db.doc("access/"+uid).set({ok,em:em||"",ts:Date.now(),by:S.uid});
+  if(from==="req")await S.db.doc("requests/"+uid).delete();
+  S.team.acc[uid]={ok,em};if(from==="req")S.team.req=S.team.req.filter(r=>r.id!==uid);
+  toast(ok?"Acceso aprobado.":"Acceso bloqueado.");render()}
+ catch(e){toast("No se pudo guardar el acceso.")}}
+function teamAccess(m){
+ const A=S.team.acc||{},R=S.team.req||[];
+ m.appendChild(el("p",{class:"muted",style:"margin-bottom:12px"},"Quien abre la Academia con HubSpot de MarketLogic entra solo. Quien no tiene HubSpot pide acceso aquí. Bloquear a alguien le quita el acceso aunque su HubSpot sea válido."));
+ m.appendChild(el("div",{class:"sec-h"},el("h2",null,"Solicitudes"),el("span",{class:"pill"},R.length+" pendientes")));
+ R.forEach(r=>{const good=okMail(r.em);
+  m.appendChild(el("div",{class:"mis",style:"margin-bottom:10px"},
+   el("div",{class:"row",style:"justify-content:space-between"},el("b",null,r.em||"sin correo"),el("span",{class:"muted"},fmtD(r.ts))),
+   el("p",{style:"color:var(--body)"},(nameOf(r.id)!=="Colega"?nameOf(r.id)+". ":"")+(good?"Correo corporativo.":"Correo fuera del dominio corporativo: revisa antes de aprobar.")),
+   el("div",{class:"row",style:"gap:8px"},el("button",{class:"btn sm",on:{click:()=>setAccess(r.id,r.em,true,"req")}},good?"Aprobar":"Aprobar de todos modos"),el("button",{class:"btn ghost sm",on:{click:()=>setAccess(r.id,r.em,false,"req")}},"Rechazar"))))});
+ if(!R.length)m.appendChild(el("p",{class:"muted"},"Sin solicitudes."));
+ m.appendChild(el("div",{class:"sec-h"},el("h2",null,"Personas y acceso")));
+ const ids=Array.from(new Set(S.team.rows.map(r=>r.id).concat(Object.keys(A))));
+ const rows=ids.map(id=>{const r=S.team.rows.find(x=>x.id===id)||{},a=A[id];return{id,em:(a&&a.em)||r.em||"",st:a&&a.ok===false?"Bloqueado":a&&a.ok?"Aprobado":VF[r.vf]||"Sin verificar"}});
+ const trs=rows.map(x=>{
+  const btn=x.id===S.uid?el("span",{class:"muted"},"Tú"):x.st==="Bloqueado"?el("button",{class:"btn ghost sm",on:{click:()=>setAccess(x.id,x.em,true)}},"Reactivar"):el("button",{class:"btn ghost sm",on:{click:()=>setAccess(x.id,x.em,false)}},"Bloquear");
+  return el("tr",null,el("td",null,el("b",null,nameOf(x.id)),el("br"),el("span",{class:"muted"},x.em||"sin correo")),el("td",null,el("span",{class:"pill "+(x.st==="Bloqueado"?"or":"ok")},x.st)),el("td",null,btn))});
+ const head=el("thead",null,el("tr",null,["Persona","Acceso","Acción"].map(h=>el("th",null,h))));
+ m.appendChild(el("div",{class:"scrollx"},el("table",{class:"tbl"},head,el("tbody",null,trs))));
+ if(!rows.length)m.appendChild(el("p",{class:"muted",style:"margin-top:10px"},"Todavía nadie ha entrado."))}
+
+boot();
+</script>

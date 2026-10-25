@@ -1,0 +1,596 @@
+[
+ {
+  "id": "1.1",
+  "module": "Tácticas y hábitos de Social Selling",
+  "title": "Por qué social selling ahora",
+  "scenes": [
+   {
+    "k": "El comprador",
+    "h": "Llega con la lista corta hecha",
+    "b": "De cada 10 compradores B2B, 9 compran a uno de los 3 proveedores que ya tenían en mente cuando empezaron a buscar.",
+    "s": "90%"
+   },
+   {
+    "k": "El comprador",
+    "h": "No quiere hablar contigo todavía",
+    "b": "El 59% prefiere no hablar con un vendedor hasta estar listo para comprar. Tu perfil y tu contenido trabajan antes que tú.",
+    "s": "59%"
+   },
+   {
+    "k": "Definición",
+    "h": "Encontrar, conectar, involucrar e influir",
+    "b": "Social selling es usar tus redes para hallar prospectos adecuados, construir relaciones de confianza y obtener inteligencia de mercado."
+   },
+   {
+    "k": "Resultado",
+    "h": "Ya es parte de cómo ganamos clientes",
+    "b": "El 32% de los clientes de MarketLogic son resultado de una estrategia de social selling.",
+    "s": "32%"
+   }
+  ]
+ },
+ {
+  "id": "1.2",
+  "module": "Tácticas y hábitos de Social Selling",
+  "title": "Tu marca y tus conexiones",
+  "scenes": [
+   {
+    "k": "Paso 1",
+    "h": "Todos tenemos una marca personal",
+    "b": "Lo quieras o no. Trabaja la tuya: un perfil con foto profesional se ve 14 veces más que uno sin foto.",
+    "s": "14x"
+   },
+   {
+    "k": "Paso 1",
+    "h": "Tu headline en dos líneas",
+    "b": "Quién eres, tu por qué, tu trayectoria, tu empresa y un llamado a la acción. Tienes 7 segundos. Nunca dejes el idioma predeterminado de LinkedIn.",
+    "s": "7 s"
+   },
+   {
+    "k": "Paso 2",
+    "h": "Empieza por quienes ya te conocen",
+    "b": "La gente confía en colegas y conocidos. Pide introducciones a través de conexiones en común y agradece cada conexión aceptada."
+   },
+   {
+    "k": "Paso 2",
+    "h": "Invitaciones en frío, con cuidado",
+    "b": "Úsalas esporádicamente, con un mensaje de valor y sin pedir nada. Nunca agregues tus conexiones a una lista de email marketing."
+   }
+  ]
+ },
+ {
+  "id": "1.3",
+  "module": "Tácticas y hábitos de Social Selling",
+  "title": "Interactuar y medir",
+  "scenes": [
+   {
+    "k": "Paso 3",
+    "h": "Califica de forma progresiva",
+    "b": "Primero la cuenta (¿relación de largo plazo?), luego la oportunidad y por último los influenciadores: champion, escéptico, obstructor."
+   },
+   {
+    "k": "Paso 3",
+    "h": "Fórmula de contenido 70, 20, 10",
+    "b": "70% industria, 20% empresa y 10% personal. Comparte conocimiento, casos de éxito y preguntas. No hagas pitch de ventas en público.",
+    "s": "70/20/10"
+   },
+   {
+    "k": "Paso 3",
+    "h": "La familiaridad se construye con toques",
+    "b": "Reenganchar un cliente inactivo toma 1 a 3 toques. Un prospecto sin ninguna familiaridad puede tomar 20 a 50.",
+    "s": "20 a 50"
+   },
+   {
+    "k": "Paso 4",
+    "h": "Mide para mejorar",
+    "b": "Vistas de perfil, interacción con tus publicaciones, crecimiento de conexiones y tu SSI. Ventas y marketing deben compartir KPIs y definición de lead."
+   }
+  ]
+ },
+ {
+  "id": "2.1",
+  "module": "Pipeline digital constante",
+  "title": "Estructura tu día con las 3E",
+  "scenes": [
+   {
+    "k": "Hábito",
+    "h": "Prospectar es el arte de interrumpir con valor",
+    "b": "Creatividad, método y compromiso. Es un juego de números: entender, aprender y optimizar."
+   },
+   {
+    "k": "Las 3E",
+    "h": "Estructura, exploración y explotación",
+    "b": "Estructura es tu CRM y tu plan diario. Exploración es la prospección diaria. Explotación es gestionar lo que ya cosechaste: clientes, up y cross selling.",
+    "s": "3E"
+   },
+   {
+    "k": "Exploración",
+    "h": "Tus horas sagradas",
+    "b": "Bloquea 3 horas al día: primera hora, mediodía y tarde. Trátalas como una reunión con tu mejor cliente, el que estás por conocer.",
+    "s": "3 h"
+   },
+   {
+    "k": "Estructura",
+    "h": "CRM sin BEBaS",
+    "b": "Basura entra, basura sale. Si alguien leyera tus notas e historial, ¿sabría cómo madurar ese lead? Rol, vertical, objetivo, calificación y canal deben estar completos."
+   }
+  ]
+ },
+ {
+  "id": "2.2",
+  "module": "Pipeline digital constante",
+  "title": "Interrumpir con valor, en varios canales",
+  "scenes": [
+   {
+    "k": "Enfoque",
+    "h": "Prospecta donde puedes ganar",
+    "b": "Define tu perfil de cliente ideal: vertical, subvertical, roles, geografía y tamaño. Tus clientes actuales son la primera referencia."
+   },
+   {
+    "k": "Teléfono",
+    "h": "5 pasos en una llamada",
+    "b": "Di su nombre, identifícate, di lo que quieres, crea un puente con un por qué y compromete la respuesta. Haz 25 a 50 dials por hora.",
+    "s": "25 a 50"
+   },
+   {
+    "k": "Email",
+    "h": "Asunto de 40 a 50 caracteres",
+    "b": "Asunto con intriga, oferta clara, solicitud razonable y valor para el cliente. Corto, relevante y sin adjuntos ni bulk.",
+    "s": "40 a 50"
+   },
+   {
+    "k": "LinkedIn y WhatsApp",
+    "h": "Menos de 100 palabras",
+    "b": "Simple, sin adjuntos, con una conexión personal y terminando en pregunta. En WhatsApp: identifícate, sé breve y usa enlaces transparentes."
+   }
+  ]
+ },
+ {
+  "id": "2.3",
+  "module": "Pipeline digital constante",
+  "title": "Objeciones y pipeline sano",
+  "scenes": [
+   {
+    "k": "Objeciones",
+    "h": "Tres claves: ancla, disrumpe, pregunta otra vez",
+    "b": "No reacciones por instinto. Responde lo que no esperan y vuelve a preguntar. Si no hay manera, no lo tomes personal y pasa al siguiente."
+   },
+   {
+    "k": "Pregunta",
+    "h": "Asume que vas a ganar",
+    "b": "Quien pregunta con confianza y explica el por qué logra su objetivo en el 70% de los casos. Pide menos de lo que ofreces en valor.",
+    "s": "70%"
+   },
+   {
+    "k": "Números",
+    "h": "Conoce tu cobertura de pipeline",
+    "b": "Con una cuota de $10,000 y 25% de cierre necesitas $40,000 de pipeline. Si cierras 5%, necesitas $200,000.",
+    "s": "$40K"
+   },
+   {
+    "k": "Ley de reemplazo",
+    "h": "Lo que prospectas hoy llega en 90 días",
+    "b": "La prospección de 30 días trae resultados en los próximos 90. Si hoy no prospectas, lo pagarás después.",
+    "s": "30 a 90"
+   }
+  ]
+ },
+ {
+  "id": "3.1",
+  "module": "Habilidades para ganar en la era digital",
+  "title": "Elevator pitch, brecha y puente de V.A.L.O.R.",
+  "scenes": [
+   {
+    "k": "Pitch",
+    "h": "30 segundos que llevan a 5 minutos",
+    "b": "Headline, tres beneficios enfocados en el cliente y una evidencia. Prepara tres versiones: 15 segundos, 30 segundos y 1 minuto.",
+    "s": "15/30/60"
+   },
+   {
+    "k": "Pitch",
+    "h": "No hables de productos",
+    "b": "Demuestra que entiendes su situación con términos como frustración, estrés o paz mental. Endulzantes: sorpresa, intriga, brecha de conocimiento y capacidad única."
+   },
+   {
+    "k": "Brecha",
+    "h": "Del estado actual al estado futuro",
+    "b": "En cada venta hay una brecha. Se co-crea con el cliente: su problema de hoy y su aspiración profesional y emocional de mañana."
+   },
+   {
+    "k": "Puente",
+    "h": "V.A.L.O.R.",
+    "b": "Ventaja competitiva, Automatización, Limitar residuos, Originalidad y Reducir costos. El puente aparece como resultado natural del descubrimiento."
+   }
+  ]
+ },
+ {
+  "id": "3.2",
+  "module": "Habilidades para ganar en la era digital",
+  "title": "Descubrimiento: el detector de problemas",
+  "scenes": [
+   {
+    "k": "Descubrimiento",
+    "h": "Es la enfermedad, no el síntoma",
+    "b": "Piensa como doctor: más impacto, más brecha y más valor de tu solución. Los clientes quieren hablar de negocio, no de TI."
+   },
+   {
+    "k": "Descubrimiento",
+    "h": "5 factores del estado actual",
+    "b": "Hechos, problemas, impacto, causas y efecto. Agrega las emociones que la situación provoca en el cliente.",
+    "s": "5"
+   },
+   {
+    "k": "Preguntas",
+    "h": "Cuatro tipos de preguntas",
+    "b": "Investigativas, de proceso, provocativas y confirmatorias. Busca respuestas cuantificables: no “más eficiencia”, sino “15% más de productividad”."
+   },
+   {
+    "k": "Demo",
+    "h": "Sin descubrimiento no hay demo",
+    "b": "No mezcles los dos. La demo muestra máximo 6 funciones que resuelven el problema ya entendido.",
+    "s": "6"
+   }
+  ]
+ },
+ {
+  "id": "3.3",
+  "module": "Habilidades para ganar en la era digital",
+  "title": "El vendedor desafiante",
+  "scenes": [
+   {
+    "k": "Perfiles",
+    "h": "Cinco tipos de vendedor",
+    "b": "Fabricante de relaciones, trabajador, lobo solitario, solucionador reactivo y desafiante. En ventas complejas el desafiante exitoso sube de 39% a 54%.",
+    "s": "39 a 54%"
+   },
+   {
+    "k": "Desafiante",
+    "h": "Opina con expertise y habla de dinero",
+    "b": "Conoce al cliente, ofrece un punto de vista distinto y no necesita su aprobación. El factor decisivo es el valor que genera su expertise."
+   },
+   {
+    "k": "Cliente",
+    "h": "Resiste el cambio",
+    "b": "Competimos contra la tranquilidad de lo conocido. Reduce el riesgo y la aversión a la pérdida: se valora 300% más lo que se pierde que lo que se deja de ganar.",
+    "s": "300%"
+   },
+   {
+    "k": "Relación",
+    "h": "De proveedor a asesor estratégico",
+    "b": "Proveedor es transaccional, consultor es experto y asesor estratégico comparte sus planes contigo. Juega a largo plazo."
+   }
+  ]
+ },
+ {
+  "id": "4.1",
+  "module": "Negociar cerrando brechas de valor",
+  "title": "Negociar no es descontar",
+  "scenes": [
+   {
+    "k": "Redefinir",
+    "h": "No se trata de descontar al final",
+    "b": "Negociar es conducir a ambas partes hacia un objetivo común. Empieza la primera vez que hablas con el cliente y se co-crea con él."
+   },
+   {
+    "k": "Sandler",
+    "h": "Firma tu contrato antes de reunirte",
+    "b": "Acuerda objetivo, agenda y tiempo. Pide permiso para preguntar y define que al final ambos decidirán si hay buen fit."
+   },
+   {
+    "k": "Teoría del juego",
+    "h": "Jugadores, estrategia y recompensa",
+    "b": "Cada negociación es una partida con decisores. La recompensa es cuantificable, no siempre es dinero. La información fluye todo el tiempo."
+   },
+   {
+    "k": "Dato",
+    "h": "El 93% evita preguntar",
+    "b": "En un estudio de Kellogg, el 93% no diagnosticó los objetivos y preocupaciones del otro, aunque hacerlo mejoraba el resultado.",
+    "s": "93%"
+   }
+  ]
+ },
+ {
+  "id": "4.2",
+  "module": "Negociar cerrando brechas de valor",
+  "title": "Problema, necesidad y sentimiento",
+  "scenes": [
+   {
+    "k": "Problema",
+    "h": "Defínelo, hazlo positivo y conviértelo en pregunta",
+    "b": "Describe, sintetiza en una frase, pásalo a positivo y a futuro, y pregúntalo: “¿Cómo podemos mejorar X para estar preparados?”."
+   },
+   {
+    "k": "Pescar con red",
+    "h": "“Cuéntame más sobre...”",
+    "b": "Preguntas abiertas que amplían la red. Antes de la siguiente pregunta, resume lo que oíste para que el cliente valide o corrija."
+   },
+   {
+    "k": "Necesidad",
+    "h": "Aspiraciones, no mínimos",
+    "b": "Sepáralas en tangibles e intangibles. Pregunta por qué importan y cuida que no se vuelvan exigencias. Son dinámicas: repite el ejercicio."
+   },
+   {
+    "k": "Sentimiento",
+    "h": "La temperatura del campo de juego",
+    "b": "Los sentimientos son hechos y son accionables. Pregunta “¿qué te preocupa de la situación actual?” y disfruta el silencio."
+   }
+  ]
+ },
+ {
+  "id": "4.3",
+  "module": "Negociar cerrando brechas de valor",
+  "title": "El vendedor desafiante toma el control",
+  "scenes": [
+   {
+    "k": "Experiencia de compra",
+    "h": "Lo que el cliente percibe como valor",
+    "b": "Perspectivas originales, ayuda para navegar alternativas, evitar campos minados y una compra sencilla. Tus competidores también invierten en mejorar."
+   },
+   {
+    "k": "3 principios",
+    "h": "Enseñar, personalizar, controlar",
+    "b": "Reformula cómo el cliente ve el problema, habla desde su contexto y maneja su aversión al riesgo siendo directo, nunca agresivo."
+   },
+   {
+    "k": "Control",
+    "h": "Cómodo con el dinero, creando momentum",
+    "b": "Se mantiene en su propuesta de valor, anticipa el siguiente paso y crea urgencia. Asertivo, ni pasivo ni agresivo."
+   },
+   {
+    "k": "Plataforma",
+    "h": "Prepara tu plataforma de negociación",
+    "b": "Pros y contras a ojos del cliente, qué preguntar, qué compartir y qué cuidar, concesiones a dar y a pedir, y tu número."
+   }
+  ]
+ },
+ {
+  "id": "5.1",
+  "module": "Cierre y posventa en la era digital",
+  "title": "Controla la venta desde el principio",
+  "scenes": [
+   {
+    "k": "5 factores",
+    "h": "Pescar, proponer, decidir, plataforma, empatía",
+    "b": "Pescar con red, presentación de propuesta, entender el proceso de decisión, plataforma de negociación y empatía táctica y recíproca.",
+    "s": "5"
+   },
+   {
+    "k": "Harvard",
+    "h": "4 principios ganar-ganar",
+    "b": "Separa a la persona de la situación, negocia desde intereses y no posiciones, desarrolla requisitos de la solución y ofrece opciones."
+   },
+   {
+    "k": "Proceso de decisión",
+    "h": "¿Quién, cómo, dónde, qué, por qué ahora, cuándo?",
+    "b": "En B2B complejo debes conocer a todos los decisores. Si el criterio no coincide con el descubrimiento, di: “Estoy confundido. Tú dijiste...”."
+   },
+   {
+    "k": "Propuesta",
+    "h": "Contrato previo y un dolor a la vez",
+    "b": "Acuerda agenda y formato, presenta primero el dolor más importante y confirma que lo resuelve antes de pasar al siguiente."
+   }
+  ]
+ },
+ {
+  "id": "5.2",
+  "module": "Cierre y posventa en la era digital",
+  "title": "Hablar de dinero sin regalar valor",
+  "scenes": [
+   {
+    "k": "Empatía",
+    "h": "“Suena como que...”",
+    "b": "Resume su situación sin afirmar al 100%. Si responde “Eso es...”, vas bien. Espeja 2 o 3 palabras clave y sonríe: suena 31% más positivo.",
+    "s": "31%"
+   },
+   {
+    "k": "Movidas",
+    "h": "Cada concesión es recíproca",
+    "b": "Si es fácil dar el descuento, ¿era costosa la propuesta original? Pregunta qué piensa lograr con ese descuento y qué necesita realmente."
+   },
+   {
+    "k": "Objeción de precio",
+    "h": "Recuerda el valor del estado futuro",
+    "b": "“Estoy confundido... si esta solución te trae XX, ¿por qué no pagar YY?”. Si es un tema de asignación, calcula el costo de demorar."
+   },
+   {
+    "k": "Presupuesto",
+    "h": "Bracketing, casos y experiencia pasada",
+    "b": "“Cuesta entre X y Z, ¿encaja?”. Comparte casos alto, medio y bajo, y confirma que la persona tiene autoridad y presupuesto."
+   }
+  ]
+ },
+ {
+  "id": "5.3",
+  "module": "Cierre y posventa en la era digital",
+  "title": "Momentum, posventa y referidos",
+  "scenes": [
+   {
+    "k": "Trials",
+    "h": "Solo si y solo si",
+    "b": "El cliente paga alguna instalación, define criterios de éxito medibles y se compromete a comprar al cumplirlos. Se divide el riesgo."
+   },
+   {
+    "k": "Momentum",
+    "h": "El prospecto desaparece",
+    "b": "Acciona, no reacciones. Recuérdale estado actual y futuro, di que te sorprende el silencio y pregunta si algo cambió."
+   },
+   {
+    "k": "Posventa",
+    "h": "Onboarding, up-selling y cross-selling",
+    "b": "Cross-selling es nuevos departamentos o geografías. Up-selling es servicios adicionales. Pide permiso, referencia casos y pide feedback."
+   },
+   {
+    "k": "Referidos",
+    "h": "Cena con referido y referente cierra más",
+    "b": "Por email cierra 50%. Un almuerzo con referido y referente cierra 80 a 90%. Cada conversación de referido lleva a 2 nuevas.",
+    "s": "80 a 90%"
+   }
+  ]
+ },
+ {
+  "id": "6.1",
+  "module": "Hábitos de comportamiento y performance",
+  "title": "Gerente, coaching y objetivos SMART",
+  "scenes": [
+   {
+    "k": "Investigación",
+    "h": "Qué espera el equipo de su gerente",
+    "b": "Según Dixon y Adamson: 73.4% son factores funcionales (vendedor desafiante, coaching, gestión) y 26.6% culturales.",
+    "s": "73%"
+   },
+   {
+    "k": "Coaching",
+    "h": "70, 20, 10",
+    "b": "70% se aprende en la experiencia diaria, 20% en interacciones y 10% en eventos formales. El 94% quiere aprender de colegas más senior.",
+    "s": "70/20/10"
+   },
+   {
+    "k": "Gerente",
+    "h": "Prioriza clientes con Pareto",
+    "b": "El 80% de los efectos viene del 20% de las causas. Decide con números e intuición educada: la historia detrás de cada número lo ancla."
+   },
+   {
+    "k": "SMART",
+    "h": "Específico, medible, alcanzable, relevante, con fecha",
+    "b": "Define hitos a 30, 60 y 90 días con 1:1 y reuniones de equipo. Si no lo puedes medir, no lo puedes mejorar."
+   }
+  ]
+ },
+ {
+  "id": "6.2",
+  "module": "Hábitos de comportamiento y performance",
+  "title": "Crear hábitos que se sostienen",
+  "scenes": [
+   {
+    "k": "Hábito",
+    "h": "Señal, acción y premio",
+    "b": "Veo el teléfono, prospecto, gano dinero. La autodisciplina es automatizar hábitos, como tu rutina de la mañana."
+   },
+   {
+    "k": "Tiempo",
+    "h": "En promedio 66 días",
+    "b": "Puede tomar entre 18 y 254 días según el estudio de University College London. La constancia pesa más que la intensidad.",
+    "s": "66 d"
+   },
+   {
+    "k": "Fundamentales",
+    "h": "Pocos, de alto impacto y con tu por qué",
+    "b": "Elige hábitos selectivos que coincidan con tus fortalezas. Crea tu brecha personal: ambiciosa pero accesible."
+   },
+   {
+    "k": "Visualización",
+    "h": "Visualiza el proceso, no el resultado",
+    "b": "Imaginar el resultado da dopamina sin acción. Visualiza cada acción de tu día para entrenar tu mente."
+   }
+  ]
+ },
+ {
+  "id": "6.3",
+  "module": "Hábitos de comportamiento y performance",
+  "title": "Cultura y la historia de tu marca",
+  "scenes": [
+   {
+    "k": "Cultura",
+    "h": "Lo que hacemos cuando nadie nos mira",
+    "b": "Integridad, confiabilidad y saber escuchar. Revisar el pipeline no es un dolor, es un ejercicio para construir confianza."
+   },
+   {
+    "k": "Dato",
+    "h": "53% de la lealtad viene de la experiencia de ventas",
+    "b": "El equipo debe confiar en la evidencia detrás de sus números. Las cuotas se construyen desde la información del vendedor.",
+    "s": "53%"
+   },
+   {
+    "k": "Brand story",
+    "h": "El cliente es el héroe, tú eres la guía",
+    "b": "Personaje con una brecha, un problema (villano externo, interno y filosófico), una guía con empatía y autoridad, un plan, una llamada a la acción, evitar el fracaso y un éxito."
+   },
+   {
+    "k": "Plan",
+    "h": "Del equipo del cliente al post-venta",
+    "b": "Reunión, co-definición del problema, co-creación del puente, propuesta, demo, trial, contrato y posventa. Siempre un próximo paso."
+   }
+  ]
+ },
+ {
+  "id": "7.1",
+  "module": "Construye tu roadmap",
+  "title": "Etapas 1 y 2: perfil y pipeline",
+  "scenes": [
+   {
+    "k": "Etapa 1",
+    "h": "Perfil que posiciona, no CV en línea",
+    "b": "Foto profesional, headline en 2 líneas, historia, recomendaciones y métricas: vistas del perfil, interacción y crecimiento de conexiones."
+   },
+   {
+    "k": "Etapa 2",
+    "h": "Divide tu día en las 3E",
+    "b": "Estructura tu plan, explora con prospección diaria y explota lo cosechado. Compórtate como el CEO de tu tiempo."
+   },
+   {
+    "k": "Etapa 2",
+    "h": "PCI y buyer personas",
+    "b": "Tu perfil de cliente ideal incluye vertical, subvertical, roles, geografía y tamaño. La buyer persona suma intereses, ambiciones y búsquedas."
+   },
+   {
+    "k": "Etapa 2",
+    "h": "Pipeline organizado y multicanal",
+    "b": "Leads calientes, SQLs, MQLs y PQLs con nurturing. Mix y cadencia para llegar donde están: teléfono, email, WhatsApp y redes."
+   }
+  ]
+ },
+ {
+  "id": "7.2",
+  "module": "Construye tu roadmap",
+  "title": "Etapas 3 y 4: pitch, detector y desafiante",
+  "scenes": [
+   {
+    "k": "Etapa 3",
+    "h": "Elevator pitch y brecha aplicada",
+    "b": "Headline, 3 beneficios y evidencia. Recuerda: dos clientes pueden comprar la misma solución pero nunca resuelven el mismo problema."
+   },
+   {
+    "k": "Etapa 3",
+    "h": "Tu detector de problemas 1.0",
+    "b": "Problemas por buyer persona, impacto en la organización (tiempo, finanzas, emoción) y lo que sabes de la raíz. Se calibra iterando."
+   },
+   {
+    "k": "Etapa 4",
+    "h": "Mejora en los 3 principios",
+    "b": "¿Cómo enseñas, personalizas y controlas? Define dónde eres fuerte y dónde necesitas apoyo de Marketing."
+   },
+   {
+    "k": "Etapa 4",
+    "h": "Control de la venta y métricas",
+    "b": "Aplica los 5 factores, comparte tu plataforma de negociación y define métricas que puedas evaluar, analizar y optimizar."
+   }
+  ]
+ },
+ {
+  "id": "7.3",
+  "module": "Construye tu roadmap",
+  "title": "Tu plan 30-60-90 con BLITZ",
+  "scenes": [
+   {
+    "k": "Plan",
+    "h": "De la teoría al pipeline",
+    "b": "El Learning Path termina cuando tus acciones están en la calle. Cada módulo se convierte en misiones reales dentro de BLITZ."
+   },
+   {
+    "k": "Nivel",
+    "h": "Cada quien avanza a su ritmo",
+    "b": "Según tu madurez comercial, la Academia te ordena qué módulos y misiones tocan primero."
+   },
+   {
+    "k": "Foco",
+    "h": "Nuevos clientes o clientes actuales",
+    "b": "Si buscas cuentas nuevas, priorizas apertura y descubrimiento. Si creces cuentas, priorizas multithread, valor y referidos."
+   },
+   {
+    "k": "Cierre",
+    "h": "Examen final y certificado",
+    "b": "Aprueba con 80% o más, entrega al menos una misión BLITZ y descarga tu certificado."
+   }
+  ]
+ }
+]
